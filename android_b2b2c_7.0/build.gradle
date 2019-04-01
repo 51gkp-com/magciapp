@@ -48,7 +48,7 @@ buildscript {
     /**
      * APP版本码
      */
-    ext.app_version_code = 1
+    ext.app_version_code = 3
 
     /**
      * APP版本号

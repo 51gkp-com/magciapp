@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.enation.geamtear.widget:NavigationView:1.1.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/NavigationView-1.1.0.aar/c5eadc923a781b8313c2cc5729b94ed0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/NavigationView-1.1.0.aar/c5eadc923a781b8313c2cc5729b94ed0/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.enation.geamtear.widget/NavigationView/1.1.0/76ac904409adbf5d1b731bae49473ab75ee36815/NavigationView-1.1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

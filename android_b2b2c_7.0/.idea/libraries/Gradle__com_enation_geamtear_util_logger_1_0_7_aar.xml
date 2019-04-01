@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.enation.geamtear.util:logger:1.0.7@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/logger-1.0.7.aar/40e6aedfca8307d5525b16db36758b1d/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/logger-1.0.7.aar/40e6aedfca8307d5525b16db36758b1d/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/logger-1.0.7.aar/40e6aedfca8307d5525b16db36758b1d/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.enation.geamtear.util/logger/1.0.7/1c9c4398911fb5fbe77075c6461ef5f41c6ea918/logger-1.0.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

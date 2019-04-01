@@ -85,12 +85,12 @@ class JavaShopConfigCenter {
     /**
      * umeng推送Key
      */
-    val UMENG_KEY = "635fa5657b5fbd9a7d51e5376767011e"
+    val UMENG_KEY = "5ca179db0cafb2285400045a"
 
     /**
      * umeng推送Secret
      */
-    val UMENG_SCRECT = "gjtzrkbrhxmfd7b7wfwidurhnynxcatb"
+    val UMENG_SCRECT = "635fa5657b5fbd9a7d51e5376767011e"
 
     /**
      * @author LDD

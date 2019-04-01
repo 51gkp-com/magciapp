@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.enation.geamtear.widget:districtselectorview:1.0.6@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/districtselectorview-1.0.6.aar/4c8875249b95b9172237e1ab9febed81/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/districtselectorview-1.0.6.aar/4c8875249b95b9172237e1ab9febed81/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/districtselectorview-1.0.6.aar/4c8875249b95b9172237e1ab9febed81/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.enation.geamtear.widget/districtselectorview/1.0.6/1b880c7ac3365f712f759f95cc9b11d5b8c02b61/districtselectorview-1.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.alibaba.android:tangram:2.0.0@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/tangram-2.0.0.aar/3b8ab6f916c3934c30087431f4fc259c/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/tangram-2.0.0.aar/3b8ab6f916c3934c30087431f4fc259c/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/tangram-2.0.0.aar/3b8ab6f916c3934c30087431f4fc259c/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.alibaba.android/tangram/2.0.0/3cef8d07b21948bee61ddac5cefb2ebbb13d4ac9/tangram-2.0.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Gradle: com.enation.geamtear:jrouter-logic:1.0.3@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jrouter-logic-1.0.3.aar/ed3bbb0a488d4b3208d581c181e7c126/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jrouter-logic-1.0.3.aar/ed3bbb0a488d4b3208d581c181e7c126/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/jrouter-logic-1.0.3.aar/ed3bbb0a488d4b3208d581c181e7c126/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.enation.geamtear/jrouter-logic/1.0.3/ea5e47996ee315c4af04095facb653a2bf8d4a35/jrouter-logic-1.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
