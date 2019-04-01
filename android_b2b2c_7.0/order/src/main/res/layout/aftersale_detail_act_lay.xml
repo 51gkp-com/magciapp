@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <com.enation.javashop.android.lib.widget.CommonActionBar
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:left_image="@drawable/javashop_back_black"
+            app:title_text="服务单详情"
+            app:title_text_color="@color/javashop_color_black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            bind:auto_topbar_height="@{true}"
+            android:id="@+id/after_sale_detail_topbar"
+            />
+        <ScrollView
+            app:layout_constraintTop_toBottomOf="@id/after_sale_detail_topbar"
+            android:layout_width="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="0dp">
+            <LinearLayout
+                android:id="@+id/content_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+            </LinearLayout>
+        </ScrollView>
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <com.enation.javashop.android.lib.widget.CommonActionBar
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:left_image="@drawable/javashop_back_black"
+            app:title_text="我的地址"
+            bind:auto_topbar_height="@{true}"
+            app:title_text_color="@color/javashop_color_black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:right_text="添加"
+            app:right_text_color="@color/javashop_color_selected_red"
+            android:id="@+id/member_address_topbar"
+            />
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refresh"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/member_address_topbar"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/member_address_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f1f1f1"
+                />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,12 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+          android:id="@+id/text"
+          android:layout_width="wrap_content"
+          android:layout_height="30dp"
+          android:gravity="center"
+          android:paddingBottom="5dp"
+          android:paddingLeft="5dp"
+          android:paddingRight="5dp"
+          android:paddingTop="5dp"
+          android:background="@drawable/javashop_goods_spec_nomal"
+          android:textColor="#2b2b2b"
+          android:textSize="15sp" />

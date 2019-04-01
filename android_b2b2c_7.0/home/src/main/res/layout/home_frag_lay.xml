@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="homeData" type="com.enation.javashop.android.component.home.binding.HomeFragmentBindHelper"/>
+    </data>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/javashop_color_white"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/home_frag_tangram_refreshlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:srlEnableRefresh="true"
+        app:srlEnableLoadMore="false"
+        android:background="@color/javashop_color_cyan"
+        >
+        <android.support.v7.widget.RecyclerView
+        android:id="@+id/home_frag_floor_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EEF2F3"
+        />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/home_frag_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        bind:auto_topbar_height="@{true}"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        bind:layout_constraintTop_toTopOf="parent"
+        bind:alpha="@{homeData.scrollY.get()}"
+        android:background="@color/javashop_color_white"
+        >
+        <View
+            android:id="@+id/home_frag_toolbar_holder"
+            android:layout_width="0dp"
+            android:background="@{homeData.scrollY.get() > 30 ? @color/javashop_color_holder_color : @color/javashop_color_transparent }"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            bind:layout_constraintTop_toTopOf="parent"
+            bind:status_bar="@{1}"
+            />
+        <LinearLayout
+            android:id="@+id/home_frag_toolbar_scan_lay"
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_frag_toolbar_holder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.65"
+            app:layout_constraintDimensionRatio="w,1:1">
+            <ImageView
+                android:id="@+id/home_frag_toolbar_scan_iv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:padding="4dp"
+                android:src="@{homeData.isHide().get() ? @drawable/javashop_scan_white : @drawable/javashop_scan_black}"
+                />
+            <TextView
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/home_frag_toolbar_scan_tv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeMinTextSize="1sp"
+                app:autoSizeStepGranularity="2sp"
+                android:textColor="@{homeData.isHide().get() ? @color/javashop_color_white :@color/javashop_color_black}"
+                android:text="@string/javashop_qrcode_name"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_frag_toolbar_my_lay"
+            android:padding="5dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/home_frag_toolbar_holder"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.65"
+            app:layout_constraintDimensionRatio="w,1:1">
+            <ImageView
+                android:id="@+id/home_frag_toolbar_my_iv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="2dp"
+                android:layout_weight="2"
+                android:src="@{homeData.isHide().get() ? @drawable/javashop_my_white : @drawable/javashop_my_black}"
+                />
+            <TextView
+                android:gravity="center"
+                android:layout_weight="1"
+                android:id="@+id/home_frag_toolbar_my_tv"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeMinTextSize="1sp"
+                app:autoSizeStepGranularity="2sp"
+                android:textColor="@{homeData.isHide().get() ? @color/javashop_color_white : @color/javashop_color_black}"
+                android:text="@string/javashop_navigation_persion_title"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix"
+                />
+        </LinearLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:id="@+id/home_frag_toolbar_search_lay"
+            app:layout_constraintHeight_default="percent"
+            app:layout_constraintHeight_percent="0.4"
+            app:layout_constraintTop_toBottomOf="@id/home_frag_toolbar_holder"
+            app:layout_constraintRight_toLeftOf="@id/home_frag_toolbar_my_lay"
+            app:layout_constraintLeft_toRightOf="@id/home_frag_toolbar_scan_lay"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@{homeData.isHide().get() ? @drawable/javashop_home_frag_toolbar_search_white_bg : @drawable/javashop_home_frag_toolbar_search_gray_bg}"
+            >
+            <ImageView
+                android:id="@+id/home_frag_toolbar_search_iv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginLeft="5dp"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.6
+"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintDimensionRatio="w,1:1"
+                android:src="@{homeData.isHide().get() ? @drawable/javashop_find_black : @drawable/javashop_find_white}"
+                />
+
+            <TextView
+                android:id="@+id/home_frag_toolbar_search_tv"
+                android:layout_width="0dp"
+                android:layout_height="31dp"
+                android:ellipsize="end"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp"
+                android:text="请输入你想搜索的关键词"
+                android:textColor="@{homeData.isHide().get() ? @color/javashop_color_searcher_tv_gray : @color/javashop_color_white}"
+                app:autoSizeMaxTextSize="20sp"
+                app:autoSizeMinTextSize="1sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintWidth_default="percent"
+                app:layout_constraintWidth_percent="0.75"
+                tools:ignore="MissingPrefix"
+                />
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
+</layout>

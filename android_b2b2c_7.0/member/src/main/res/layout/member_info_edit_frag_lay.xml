@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+        <android.support.constraint.ConstraintLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            xmlns:bind="http://schemas.android.com/apk/res-auto"
+            android:background="#f4f5f7"
+            bind:backgroundColor="@{@color/javashop_color_white}"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+            <com.enation.javashop.android.lib.widget.CommonActionBar
+                android:id="@+id/member_info_edit_frag_topbar"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                bind:auto_topbar_height="@{true}"
+                app:left_image="@drawable/javashop_back_black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:title_text="修改"
+                app:title_text_color="@color/javashop_color_black"
+                app:right_text="确定"
+                app:right_text_color="@color/javashop_color_select_color_red"
+                >
+            </com.enation.javashop.android.lib.widget.CommonActionBar>
+
+
+            <EditText
+                android:id="@+id/member_info_edit_frag_et"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@drawable/javashop_text_edit_bg"
+                app:layout_constraintTop_toBottomOf="@id/member_info_edit_frag_topbar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintWidth_percent="0.9"
+                android:gravity="left"
+                app:layout_constraintDimensionRatio="h,5:1"
+                app:layout_constraintVertical_bias="0.05"
+                android:padding="5dp"
+                android:textSize="15sp"
+                android:lines="5"
+                android:maxLength="100"
+                />
+        </android.support.constraint.ConstraintLayout>
+</layout>

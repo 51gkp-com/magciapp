@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refresh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srlEnableLoadMore="true"
+            app:srlEnableRefresh="false"
+            >
+        <android.support.v7.widget.RecyclerView
+            android:background="@color/javashop_color_cyan"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/promotion_seckill_frag_rv"
+            />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

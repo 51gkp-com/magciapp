@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="promotionItemData"
+            type="String"/>
+    </data>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/javashop_color_cart_promotion_item_bg"
+    >
+    <TextView
+        android:layout_marginLeft="45dp"
+        android:id="@+id/cart_promotion_tag"
+        style="@style/auto_text_size"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="2sp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:autoSizeTextType="uniform"
+        android:background="@drawable/javashop_red_radis_bg"
+        android:gravity="center"
+        android:text="满优惠"
+        android:textColor="@color/color_white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintWidth_percent="0.13"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingPrefix"
+        />
+    <TextView
+        android:id="@+id/cart_promotion_content_tv"
+        style="@style/auto_text_size"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="2sp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:autoSizeTextType="uniform"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/javashop_color_navy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_default="percent"
+        app:layout_constraintHeight_percent="0.55"
+        app:layout_constraintLeft_toRightOf="@id/cart_promotion_tag"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="MissingPrefix"
+        android:text="@{promotionItemData}"
+        />
+</android.support.constraint.ConstraintLayout>
+</layout>

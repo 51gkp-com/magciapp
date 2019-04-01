@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="data"
+            type="com.enation.javashop.android.middleware.model.GoodsFilterValue"/>
+        <import type="android.view.View"/>
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@{data ==null ? null:  data.selectedObservable.get() ? @drawable/javashop_goods_search_filter_btn_selected_bg : @drawable/javashop_goods_search_filter_btn_bg }"
+        >
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="h,3:1"
+            >
+            <TextView
+                android:id="@+id/goods_search_filter_frag_child_name_tv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_percent="0.7"
+                app:layout_constraintWidth_percent="0.9"
+                style="@style/auto_text_size"
+                android:gravity="center"
+                app:autoSizeMaxTextSize="30sp"
+                app:autoSizeMinTextSize="1sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix"
+                android:text="@{data == null ? @string/javashop_all_brand : data.name}"
+                android:textColor="@{ data.selectedObservable.get() ? @color/javashop_color_goods_search_action_item_selected : @color/javashop_color_black }"
+                />
+            <ImageView
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.4"
+                app:layout_constraintDimensionRatio="w,1:1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:src="@drawable/javashop_into_gray"
+                android:visibility="@{data == null ? View.VISIBLE : View.GONE}"
+                />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

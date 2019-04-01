@@ -1,0 +1,23 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.enation.javashop.android.component.order">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:name="apkbuild.OrderApplication"
+        android:supportsRtl="true">
+        <activity android:name="com.enation.javashop.android.component.order.activity.OrderCreateActivity"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
+
+    <!--单独Module调试 需要往Application作用域下加入皮肤-->
+    <!--android:theme="@style/Theme.AppCompat.Light.NoActionBar"-->

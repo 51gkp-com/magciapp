@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="itemData"
+            type="com.enation.javashop.android.middleware.model.ParentCategoryViewModel"/>
+    </data>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@{itemData.selected.get() ? @drawable/javashop_category_left_item_select_bg : @drawable/javashop_category_left_item_nomal_bg}"
+    android:layout_height="50dp"
+    android:layout_width="match_parent"
+    >
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:autoSizeMaxTextSize="100sp"
+        app:autoSizeMinTextSize="1sp"
+        app:autoSizeStepGranularity="2sp"
+        app:autoSizeTextType="uniform"
+        tools:ignore="MissingPrefix"
+        android:text="@{itemData.bind_name.get()}"
+        android:gravity="center"
+        android:textColor="@{itemData.selected.get() ? @color/javashop_color_category_left_item_select_tc : @color/javashop_color_category_left_item_nomal_tc}"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="1"
+        app:layout_constraintDimensionRatio="h,4.5:1"
+        />
+</android.support.constraint.ConstraintLayout>
+</layout>

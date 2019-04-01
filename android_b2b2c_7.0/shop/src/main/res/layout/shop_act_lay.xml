@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.enation.javashop.android.middleware.bind.ViewAttrModel"/>
+
+        <import type="com.enation.javashop.android.middleware.bind.DataBindingAction"/>
+
+        <import type="android.view.View"/>
+        <variable
+            name="data"
+            type="com.enation.javashop.android.middleware.model.ShopViewModel"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#fff3f5f7"
+            app:elevation="0dp"
+            bind:height_percent="@{25}">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:contentScrim="#cc000000"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/shop_header_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/welcome"
+                    android:visibility="visible"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.7"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/shop_info_lay"
+                        android:layout_width="fill_parent"
+                        android:layout_height="match_parent"
+                        android:background="#66000000"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/shop_logo_iv"
+                            bind:url="@{data.logo}"
+                            android:layout_width="100.0dip"
+                            android:layout_height="40.0dip"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginBottom="10dp"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/launcher"
+                            bind:width_percent_height_ratio="@{ViewAttrModel.build(25,40)}"
+                            />
+
+                        <LinearLayout
+                            android:id="@+id/shop_collect_lay"
+                            android:layout_width="80dp"
+                            android:layout_height="50dp"
+                            android:layout_alignParentBottom="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginBottom="5dp"
+                            android:orientation="vertical"
+                            android:visibility="visible"
+                            bind:width_percent_height_ratio="@{ViewAttrModel.build(20,75)}"
+                            >
+
+                            <LinearLayout
+                                android:id="@+id/shop_collect_top"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="3"
+                                android:background="@drawable/javashop_shop_collect_top_bg"
+                                android:gravity="center_vertical"
+                                android:orientation="horizontal"
+                                >
+
+                                <View
+                                    android:id="@+id/shop_collect_top_iv"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:layout_margin="5dp"
+                                    android:background="@drawable/javashop_shop_heart_selector"
+                                    bind:width_percent_height_ratio="@{ViewAttrModel.build(5,100)}"
+                                    />
+
+                                <com.enation.javashop.android.lib.widget.AutoSizeTextView
+                                    android:id="@+id/shop_collect_top_tv"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:paddingBottom="3dp"
+                                    android:paddingTop="3dp"
+                                    android:gravity="center"
+                                    android:lines="1"
+                                    android:text="关注"
+                                    android:textColor="@color/javashop_color_white"
+                                    />
+                            </LinearLayout>
+
+                            <com.enation.javashop.android.lib.widget.AutoSizeTextView
+                                android:id="@+id/shop_collect_top_num_tv"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="2"
+                                android:background="@drawable/javashop_shop_collect_bottom_bg"
+                                android:ellipsize="end"
+                                android:text="@{data.collectNumString}"
+                                android:gravity="center"
+                                android:lines="1"
+                                android:padding="3dp"
+                                android:textColor="@color/javashop_color_white"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/store_message_lay"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:layout_alignTop="@id/shop_logo_iv"
+                            android:layout_marginBottom="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_toEndOf="@id/shop_logo_iv"
+                            android:orientation="vertical"
+                            android:visibility="visible"
+                            bind:width_percent_height_ratio="@{ViewAttrModel.build(50,30)}">
+
+                            <com.enation.javashop.android.lib.widget.AutoSizeTextView
+                                android:id="@+id/shop_name_tv"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:ellipsize="end"
+                                android:gravity="center_vertical"
+                                android:lines="1"
+                                android:paddingBottom="5dp"
+                                android:text="@{data.name}"
+                                android:textColor="#fff3f5f7"
+                                />
+
+                            <com.enation.javashop.android.lib.widget.AutoSizeTextView
+                                android:id="@+id/shop_self_flag"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1.5"
+                                android:background="@drawable/javashop_corners_red"
+                                android:gravity="center"
+                                android:lines="1"
+                                android:padding="2dp"
+                                android:text="自营"
+                                android:textColor="#fff3f5f7"
+                                android:textSize="11.0sp"
+                                android:visibility="@{data.selfOperated ? View.VISIBLE : View.GONE}"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/shop_top_lay"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:elevation="0dp"
+                    android:visibility="visible"
+                    app:contentInsetStart="0dp"
+                    app:layout_collapseMode="pin"
+                    bind:auto_topbar_height="@{true}"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        >
+
+                        <View
+                            android:id="@+id/shop_holder"
+                            android:layout_width="match_parent"
+                            android:layout_height="21dp"
+                            android:background="@color/javashop_color_transparent"
+                            bind:status_bar="@{1}"/>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal"
+                            >
+
+                            <ImageView
+                                android:id="@+id/shop_back"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:padding="5.0dip"
+                                android:src="@drawable/javashop_back_white"
+                                bind:action="@{DataBindingAction.BACK}"
+                                bind:height_percent="@{5}"
+                                bind:width_percent="@{12}"
+                                />
+
+                            <LinearLayout
+                                android:id="@+id/shop_find_lay"
+                                android:layout_width="fill_parent"
+                                android:layout_height="31.0dip"
+                                android:layout_centerVertical="true"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginRight="10.0dip"
+                                android:layout_weight="1"
+                                android:background="@drawable/javashop_search_bg"
+                                android:orientation="horizontal"
+                                bind:height_percent="@{5}">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="20.0dip"
+                                    android:layout_centerVertical="true"
+                                    android:layout_margin="5.0dip"
+                                    android:padding="3.0dip"
+                                    android:src="@drawable/javashop_find_black"
+                                    bind:height_percent="@{3.5}"/>
+
+                                <TextView
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_weight="1.0"
+                                    android:background="#00000000"
+                                    android:gravity="center_vertical"
+                                    android:hint="搜本店"
+                                    android:paddingBottom="2.0dip"
+                                    android:paddingRight="20.0dip"
+                                    android:paddingTop="2.0dip"
+                                    android:textColor="#ffb6b6b6"
+                                    android:textColorHint="#aaaaaa"
+                                    android:textSize="14.0dip"/>
+                            </LinearLayout>
+
+                            <ImageView
+                                android:id="@+id/shop_category"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:scaleType="fitCenter"
+                                android:src="@drawable/javashop_icon_category_text_white"
+                                />
+
+                            <ImageView
+                                android:id="@+id/shop_more"
+                                android:layout_width="wrap_content"
+                                android:layout_height="fill_parent"
+                                android:padding="8dp"
+                                android:paddingTop="5dp"
+                                android:src="@drawable/javashop_icon_more_white"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.Toolbar>
+            </android.support.design.widget.CollapsingToolbarLayout>
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <net.lucode.hackware.magicindicator.MagicIndicator
+                android:id="@+id/shop_tab_bar"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                bind:height_with_width_percent="@{13}"
+                android:layout_gravity="center"
+                android:background="#fff8f8f8"
+                />
+
+            <com.enation.javashop.android.widget.navigationview.FragmentPagerView
+                android:id="@+id/shop_vp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1.0"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+            <LinearLayout
+                android:id="@+id/shop_bottom_bar"
+                android:layout_width="fill_parent"
+                android:layout_height="40.0dip"
+                android:layout_alignParentBottom="true"
+                android:background="#fff3f5f7"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <View
+                    style="@style/line2"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.20000005dip"/>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_weight="1.0"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/shop_info"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.0"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30.0dip"
+                            android:layout_height="30.0dip"
+                            android:padding="6.0dip"
+                            android:src="@drawable/javashop_cart_shop_icon"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="店铺详情"
+                            android:textSize="15.0sp"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/shop_hot_category"
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:layout_weight="1.0"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="30.0dip"
+                            android:layout_height="30.0dip"
+                            android:src="@drawable/javashop_navigation_category_nomal"
+                            android:padding="6.0dip"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="热门分类"
+                            android:textSize="15.0sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

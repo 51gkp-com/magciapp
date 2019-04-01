@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="pay"
+            type="com.enation.javashop.android.middleware.model.SingleIntViewModel"/>
+        <variable
+            name="ship"
+            type="com.enation.javashop.android.middleware.model.SingleIntViewModel"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:background="#eef2f3"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent">
+    <com.enation.javashop.android.lib.widget.CommonActionBar
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        bind:auto_topbar_height="@{true}"
+        app:left_image="@drawable/javashop_back_black"
+        app:title_text="选择操作"
+        app:title_text_color="@color/javashop_color_black"
+        android:id="@+id/order_create_payship_topbar"
+        />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/order_create_payship_topbar"
+            android:id="@+id/order_create_payship_pay_bg"
+            android:background="@color/javashop_color_white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            bind:backgroundColor="@{@color/javashop_color_white}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintDimensionRatio="h,3.7:1"
+            />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            bind:backgroundColor="@{@color/javashop_color_white}"
+            app:layout_constraintTop_toBottomOf="@id/order_create_payship_pay_bg"
+            android:id="@+id/order_create_payship_ship_bg"
+            android:background="@color/javashop_color_white"
+            android:layout_marginTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintDimensionRatio="h,3.7:1"
+            />
+
+        <ImageView
+            android:id="@+id/order_create_payship_pay_iv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            bind:layout_constraintRight_toRightOf="parent"
+            bind:layout_constraintHorizontal_bias="0"
+            bind:layout_constraintWidth_percent="0.05"
+            app:layout_constraintTop_toTopOf="@id/order_create_payship_pay_bg"
+            app:layout_constraintDimensionRatio="h,1:1"
+            android:src="@drawable/javashop_icon_pay_gray"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/order_create_payship_pay_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toRightOf="@id/order_create_payship_pay_iv"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/order_create_payship_pay_iv"
+            app:layout_constraintBottom_toBottomOf="@id/order_create_payship_pay_iv"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            style="@style/auto_text_size"
+            android:textStyle="bold"
+            android:textColor="#6a6a6a"
+            android:text="支付方式"
+            />
+        
+        <TextView
+            android:id="@+id/order_create_payship_pay_noline"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/order_create_payship_pay_title"
+            app:layout_constraintLeft_toLeftOf="@id/order_create_payship_pay_iv"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintDimensionRatio="h,2.5:1"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintHorizontal_bias="0"
+            android:text="在线支付"
+            android:textColor="@{ 12 == pay.state ? @color/javashop_color_select_color_red : @color/javashop_color_nomal_color_gray}"
+            android:background="@{ 12 == pay.state ? @drawable/javashop_fillet_red_bg : @drawable/javashop_fillet_gray_bg }"
+            android:gravity="center"
+            style="@style/auto_text_size"
+            android:padding="5dp"
+            />
+
+        <TextView
+            android:id="@+id/order_create_payship_pay_cod"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/order_create_payship_pay_title"
+            app:layout_constraintLeft_toRightOf="@id/order_create_payship_pay_noline"
+            app:layout_constraintWidth_percent="0.2"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintDimensionRatio="h,2.5:1"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintHorizontal_bias="0"
+            android:text="货到付款"
+            android:textColor="@{ 13 == pay.state ? @color/javashop_color_select_color_red : @color/javashop_color_nomal_color_gray}"
+            android:background="@{ 13 == pay.state ? @drawable/javashop_fillet_red_bg : @drawable/javashop_fillet_gray_bg }"
+            android:gravity="center"
+            style="@style/auto_text_size"
+            android:padding="5dp"
+            />
+
+        <ImageView
+            android:id="@+id/order_create_payship_ship_iv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            bind:layout_constraintRight_toRightOf="parent"
+            bind:layout_constraintHorizontal_bias="0"
+            bind:layout_constraintWidth_percent="0.05"            app:layout_constraintTop_toTopOf="@id/order_create_payship_ship_bg"
+            app:layout_constraintDimensionRatio="h,1:1"
+            android:src="@drawable/javashop_icon_logistics_black"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            />
+        <TextView
+            android:id="@+id/order_create_payship_ship_title"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toRightOf="@id/order_create_payship_ship_iv"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/order_create_payship_ship_iv"
+            app:layout_constraintBottom_toBottomOf="@id/order_create_payship_ship_iv"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="10dp"
+            style="@style/auto_text_size"
+            android:textStyle="bold"
+            android:textColor="#6a6a6a"
+            android:text="配送时间"
+            />
+
+        <TextView
+            android:id="@+id/order_create_payship_ship_everytime"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/order_create_payship_ship_title"
+            app:layout_constraintLeft_toLeftOf="@id/order_create_payship_pay_iv"
+            app:layout_constraintWidth_percent="0.2"
+            app:layout_constraintDimensionRatio="h,2.5:1"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintHorizontal_bias="0"
+            android:text="任意时间"
+            android:textColor="@{ ship.state == 14 ? @color/javashop_color_select_color_red : @color/javashop_color_nomal_color_gray}"
+            android:background="@{ ship.state == 14 ? @drawable/javashop_fillet_red_bg : @drawable/javashop_fillet_gray_bg }"
+            android:gravity="center"
+            style="@style/auto_text_size"
+            android:padding="5dp"
+            />
+
+        <TextView
+            android:id="@+id/order_create_payship_ship_worktime"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/order_create_payship_ship_title"
+            app:layout_constraintLeft_toRightOf="@id/order_create_payship_ship_everytime"
+            app:layout_constraintWidth_percent="0.2"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintDimensionRatio="h,2.5:1"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintHorizontal_bias="0"
+            android:text="仅工作日"
+            android:textColor="@{ ship.state == 15 ? @color/javashop_color_select_color_red : @color/javashop_color_nomal_color_gray}"
+            android:background="@{ ship.state == 15 ? @drawable/javashop_fillet_red_bg : @drawable/javashop_fillet_gray_bg }"
+            android:gravity="center"
+            style="@style/auto_text_size"
+            android:padding="5dp"
+            />
+
+        <TextView
+            android:id="@+id/order_create_payship_ship_resttime"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/order_create_payship_ship_title"
+            app:layout_constraintLeft_toRightOf="@id/order_create_payship_ship_worktime"
+            app:layout_constraintWidth_percent="0.2"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintDimensionRatio="h,2.5:1"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintHorizontal_bias="0"
+            android:text="仅休息日"
+            android:textColor="@{ ship.state == 16 ? @color/javashop_color_select_color_red : @color/javashop_color_nomal_color_gray}"
+            android:background="@{ ship.state == 16 ? @drawable/javashop_fillet_red_bg : @drawable/javashop_fillet_gray_bg }"
+            android:gravity="center"
+            style="@style/auto_text_size"
+            android:padding="5dp"
+            />
+
+        <TextView
+            android:id="@+id/order_create_payship_confrim"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintDimensionRatio="h,4.8:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/javashop_corners_red"
+            android:text="提交"
+            app:layout_constraintVertical_bias="0.95"
+            android:textColor="@color/javashop_color_white"
+            style="@style/auto_text_size"
+            android:gravity="center"
+            android:padding="7dp"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="10sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+            tools:ignore="MissingPrefix"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

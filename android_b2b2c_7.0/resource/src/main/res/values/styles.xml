@@ -1,0 +1,36 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="AppSplash" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@mipmap/welcome</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="lollipop">false</item>
+        <item name="android:navigationBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
+        <item name="android:statusBarColor" tools:targetApi="lollipop">@android:color/transparent</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+     </style>
+    <style name="gray_line">
+        <item name="android:background">#e4e6e5</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <style name="wrap_gray_line">
+        <item name="android:background">#e4e6e5</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+    <style name="constraintLayout_config">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+    </style>
+    <style name="auto_text_size">
+        <item name="android:autoSizeTextType" tools:targetApi="o">uniform</item>
+        <item name="android:autoSizeMinTextSize" tools:targetApi="o">1sp</item>
+        <item name="android:autoSizeMaxTextSize" tools:targetApi="o">100sp</item>
+        <item name="android:autoSizeStepGranularity" tools:targetApi="o">2sp</item>
+    </style>
+    <style name="auto_text_size_small">
+        <item name="android:autoSizeTextType" tools:targetApi="o">uniform</item>
+        <item name="android:autoSizeMinTextSize" tools:targetApi="o">13sp</item>
+        <item name="android:autoSizeMaxTextSize" tools:targetApi="o">20sp</item>
+        <item name="android:autoSizeStepGranularity" tools:targetApi="o">2sp</item>
+    </style>
+</resources>

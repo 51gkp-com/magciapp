@@ -1,0 +1,275 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion target_sdk_version
+    buildToolsVersion build_tools_version
+
+    defaultConfig {
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode app_version_code
+        versionName app_version
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        dataBinding {
+            enabled = true
+        }
+//        ndk{
+//            moduleName "JavaShopCommonNDK"       //生成的so文件名字，调用C程序的代码中会用到该名字
+//            abiFilters "armeabi", "armeabi-v7a", "x86" //输出指定三种平台下的so库
+//        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+//        debug {
+//            jniDebuggable true
+//        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/code'
+//        main.jni.srcDirs = []
+//        main.jniLibs.srcDir 'src/main/libs'
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    /**
+     * UI适配
+     */
+    compile 'me.jessyan:autosize:1.1.1'
+
+    /**
+     *  圆形ImageView
+     */
+    compile 'de.hdodenhof:circleimageview:2.2.0'
+
+    /**
+     *  JavaShop_Android 基础工具库
+     */
+    compile 'com.enation.geamtear.util:base:1.1.4'
+
+    /**
+     *  JavaShop_Android 网络库
+     */
+    compile 'com.enation.geamtear.net:engine:1.1.5'
+
+    /**
+     *  JavaShop_Android 图片加载库
+     */
+    compile 'com.enation.geamtear.image:glidepluin:1.0.2'
+
+    /**
+     *  JavaShop_Android 第三方工具库
+     */
+    compile 'com.enation.geamtear.widget:ConnectView:1.1.1'
+
+    /**
+     *  JavaShop_Android 支付工具库
+     */
+    compile 'com.enation.geamtear.pay:payutils:1.0.2'
+
+    /**
+     *  JavaShop_Android 地区选择工具库
+     */
+    compile 'com.enation.geamtear.widget:districtselectorview:1.0.6'
+
+    /**
+     *  JavaShop_Android 导航View
+     */
+    compile 'com.enation.geamtear.widget:NavigationView:1.1.0'
+
+    /**
+     *  JavaShop_Android 路由
+     */
+    compile 'com.enation.geamtear:jrouter-logic:1.0.3'
+
+    /**
+     *  JavaShop_Android 图片选择工具库
+     */
+    compile('com.enation.geamtear.photo:takephoto:1.0.2') {
+        exclude group: 'com.github.bumptech.glide'
+        exclude group: 'io.reactivex.rxjava2'
+    }
+
+    /**
+     *  JavaShop_Android Log日志库
+     */
+    compile 'com.enation.geamtear.util:logger:1.0.7'
+
+    /**
+     *   Android基础依赖库
+     */
+    compile "com.android.support:design:$support_library_version"
+    compile "com.android.support:support-v4:$support_library_version"
+    compile "com.android.support:cardview-v7:$support_library_version"
+    testCompile 'junit:junit:4.12'
+
+    /**
+     *   突破方法数限制
+     */
+    compile 'com.android.support:multidex:1.0.2'
+
+
+    compile 'com.github.1002326270xc:LayoutManager-FlowLayout:v1.7'
+
+    /**
+     *   刷新数据控件
+     */
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
+
+    /**
+     *   动画框架 巨牛逼
+     */
+    compile 'com.airbnb.android:lottie:1.5.3'
+
+    /**
+     *  Kotlin依赖
+     */
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    compile 'org.jetbrains.kotlinx:kotlinx-coroutines-core:0.19.3'
+
+    /**
+     *  Databinding
+     */
+    kapt "com.android.databinding:compiler:2.3.3"
+
+    /**
+     *  Dagger依赖
+     */
+    compile 'com.google.dagger:dagger:2.7'
+
+    /**
+     *  Dagger编译依赖
+     */
+    kapt 'com.google.dagger:dagger-compiler:2.7'
+
+    /**
+     *  七巧板框架
+     */
+    compile 'com.alibaba.android:tangram:2.0.0@aar'
+    compile('com.alibaba.android:vlayout:1.2.6.1@aar') {
+        changing = true
+    }
+    compile 'com.alibaba.android:ultraviewpager:1.0.6.5@aar'
+    compile('me.everything:overscroll-decor-android:1.0.1@aar') {
+        transitive true
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    }
+    compile('com.alibaba.android:virtualview:1.0.2@aar') {
+        transitive true
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.tmall.android', module: 'tmallandroid_mui'
+        exclude group: 'com.google.android', module: 'support-v7-recyclerview'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+
+    //compile 'com.alibaba.android:tangram:2.2.1@aar'
+
+    /**
+     *  Aop埋点
+     */
+    compile "org.aspectj:aspectjrt:$aspectj_version"
+
+    /**
+     *  constraint-layout布局依赖
+     */
+    compile 'com.android.support.constraint:constraint-layout:1.1.0-beta5'
+
+    /**
+     * 指示器
+     */
+    compile 'com.github.hackware1993:MagicIndicator:1.5.0'
+
+    /**
+     * 汉字辅助
+     */
+    compile files('libs/chinese2py.jar')
+
+    /**
+     * 二维码扫描
+     */
+    compile 'cn.yipianfengye.android:zxing-library:2.2'
+
+    /**
+     * GLIDE 图片处理器
+     */
+    compile ('jp.wasabeef:glide-transformations:2.0.1') {
+        exclude group: 'com.github.bumptech.glide'
+    }
+
+    /**
+     * 时间选择器
+     */
+    compile 'com.contrarywind:Android-PickerView:4.1.6'
+
+    /**
+     * 图片查看器
+     */
+    compile 'com.github.iielse:ImageWatcher:1.1.5'
+
+    /**
+     * 权限控制
+     */
+    compile 'pub.devrel:easypermissions:0.2.0'
+
+
+    compile 'com.github.pinguo-zhouwei:MZBannerView:v2.0.2'
+
+
+    /**
+     * 推送
+     */
+    compile 'com.umeng.sdk:common:1.5.3'
+    compile 'com.umeng.sdk:utdid:1.1.5.3'
+    compile 'com.umeng.sdk:push:4.2.0'
+}
+
+//tasks.withType(JavaCompile) {
+//    compileTask -> compileTask.dependsOn ndkBuild
+//}
+//
+//task ndkBuild(type: Exec) {
+//    workingDir file('src/main/jni')
+//    commandLine getNdkBuildCmd()
+//}
+//
+//task cleanNative(type: Exec){
+//    workingDir file('src/main/jni')
+//    commandLine getNdkBuildCmd(), 'clean'
+//}
+//
+//clean.dependsOn cleanNative
+//
+//def getNdkDir() {
+//    if (System.env.ANDROID_NDK_ROOT != null)
+//        return System.env.ANDROID_NDK_ROOT
+//    Properties properties = new Properties()
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//    def ndkdir = properties.getProperty('ndk.dir', null)
+//    if (ndkdir == null)
+//        throw new GradleException("NDK location not found. Define location with ndk.dir in the local.properties file or with an ANDROID_NDK_ROOT environment variable.")
+//    return ndkdir
+//}
+//
+//def getNdkBuildCmd() {
+//    def ndkbuild = getNdkDir() + "/ndk-build"
+//    //Window下需要加.cmd后缀，Mac下则不需要
+//    ndkbuild += ""
+//    return ndkbuild
+//}
+
+

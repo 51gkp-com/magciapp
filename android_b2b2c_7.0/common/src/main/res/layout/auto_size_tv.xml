@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          xmlns:tools="http://schemas.android.com/tools"
+          xmlns:app="http://schemas.android.com/apk/res-auto"
+          app:autoSizeMaxTextSize="100sp"
+          app:autoSizeMinTextSize="10sp"
+          app:autoSizeStepGranularity="2sp"
+          app:autoSizeTextType="uniform"
+          tools:ignore="MissingPrefix"
+    >
+</TextView>

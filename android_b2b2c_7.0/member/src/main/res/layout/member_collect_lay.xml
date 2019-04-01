@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="data"
+            type="com.enation.javashop.android.component.member.vm.MemberCollectViewModel"/>
+        <import type="android.view.View"/>
+    </data>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/collect_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            bind:backgroundColor="@{@color/javashop_color_common_topbar_bg}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            bind:layout_constraintRight_toRightOf="parent"
+            bind:auto_topbar_height="@{true}"
+            >
+            <View
+                android:id="@+id/collect_toolbar_holder"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                bind:status_bar="@{1}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@color/javashop_color_holder_color"
+                />
+            <ImageView
+                android:id="@+id/collect_back_iv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:src="@drawable/javashop_back_black"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintDimensionRatio="w,1:1"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.33"
+                app:layout_constraintTop_toBottomOf="@id/collect_toolbar_holder"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginLeft="10dp"
+                />
+            
+            <TextView
+                android:id="@+id/collect_goods_tv"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                bind:layout_constraintLeft_toLeftOf="parent"
+                bind:layout_constraintRight_toRightOf="parent"
+                bind:layout_constraintTop_toBottomOf="@id/collect_toolbar_holder"
+                bind:layout_constraintBottom_toBottomOf="parent"
+                bind:layout_constraintWidth_percent="0.1"
+                bind:layout_constraintDimensionRatio="h,1.5:1"
+                bind:layout_constraintHorizontal_bias="0.4"
+                android:gravity="center"
+                android:text="商品"
+                android:textColor="@{data.state.get() == 0 ?  @color/javashop_color_black : @color/javashop_color_text_color_a}"
+                style="@style/auto_text_size"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeMinTextSize="1sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix"
+                />
+            <TextView
+                android:id="@+id/collect_shop_tv"
+                android:layout_width="0dp"
+                android:gravity="center"
+                android:layout_height="0dp"
+                bind:layout_constraintLeft_toLeftOf="parent"
+                bind:layout_constraintRight_toRightOf="parent"
+                bind:layout_constraintTop_toBottomOf="@id/collect_toolbar_holder"
+                bind:layout_constraintBottom_toBottomOf="parent"
+                bind:layout_constraintWidth_percent="0.1"
+                bind:layout_constraintDimensionRatio="h,1.5:1"
+                bind:layout_constraintHorizontal_bias="0.6"
+                android:text="店铺"
+                android:textColor="@{data.state.get() == 1 ?  @color/javashop_color_black : @color/javashop_color_text_color_a}"
+                style="@style/auto_text_size"
+                app:autoSizeMaxTextSize="100sp"
+                app:autoSizeMinTextSize="1sp"
+                app:autoSizeStepGranularity="2sp"
+                app:autoSizeTextType="uniform"
+                tools:ignore="MissingPrefix"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.05"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/collect_goods_tv"
+                app:layout_constraintRight_toRightOf="@id/collect_goods_tv"
+                android:background="@color/javashop_color_selected_red"
+                android:visibility="@{ data.state.get() == 0 ? View.VISIBLE : View.GONE}"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.05"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/collect_shop_tv"
+                app:layout_constraintRight_toRightOf="@id/collect_shop_tv"
+                android:background="@color/javashop_color_selected_red"
+                android:visibility="@{ data.state.get() == 1 ? View.VISIBLE : View.GONE}"
+                />
+            <View style="@style/gray_line"
+                  app:layout_constraintBottom_toBottomOf="parent"/>
+        </android.support.constraint.ConstraintLayout>
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            bind:layout_constraintLeft_toLeftOf="parent"
+            bind:layout_constraintRight_toRightOf="parent"
+            bind:layout_constraintTop_toBottomOf="@id/collect_topbar"
+            bind:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/collect_refresh"
+            android:background="#f1f1f1"
+            bind:srlEnableLoadMore="true"
+            bind:srlEnableRefresh="true"
+            >
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/collect_rv"
+                android:background="#f1f1f1"
+                />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

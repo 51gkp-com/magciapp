@@ -1,0 +1,38 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.enation.javashop.android.component.member">
+    <application android:allowBackup="true"
+                 android:label="@string/app_name"
+                 android:supportsRtl="true"
+        >
+        <activity android:name=".activity.CommentListActivity"
+            />
+        <activity android:name=".activity.PostCommentActivity"
+            />
+        <activity android:name=".activity.MemberCouponActivity"
+            />
+        <activity android:name=".activity.MemberCollectActivity"
+            />
+        <activity android:name=".activity.MemberPointActivity"
+            />
+
+        <activity android:name=".activity.MemberAddressActivity"
+            />
+
+        <activity android:name=".activity.MemberAddressEditActivity"
+            />
+        <activity android:name=".activity.MemberSecurityActivity"
+            />
+        <activity android:name=".activity.MemberCheckVcodeActivity"
+            />
+        <activity android:name=".activity.MemberSendMessageActivity"
+            />
+        <activity android:name=".activity.MemberPasswordActivity"
+            />
+
+        <activity android:name=".activity.MemberLoginActivity"
+            />
+
+        <activity android:name=".activity.MemberInfoEditActivity"
+            />
+    </application>
+</manifest>

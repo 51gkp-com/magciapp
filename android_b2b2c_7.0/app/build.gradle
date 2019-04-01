@@ -1,0 +1,128 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+//apply plugin: 'com.enation.javashop.aspectjrt'
+
+kapt {
+    arguments {
+        arg("moduleName", project.getName())
+    }
+}
+android {
+    compileSdkVersion target_sdk_version
+    buildToolsVersion build_tools_version
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+    defaultConfig {
+        applicationId "com.enation.app.javashop"
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode app_version_code
+        versionName app_version
+        multiDexEnabled true
+        dataBinding {
+            enabled = true
+        }
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a' ,'x86', 'x86_64', 'mips', 'mips64'
+        }
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/code'
+    }
+    lintOptions{
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    dexOptions {
+
+        javaMaxHeapSize "4g"
+
+        jumboMode=true
+
+        preDexLibraries=true
+
+        threadCount=8
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    /**
+     * 单元测试
+     */
+    testCompile 'junit:junit:4.12'
+    /**
+     * Dagger编译依赖
+     */
+    kapt 'com.google.dagger:dagger-compiler:2.7'
+    /**
+     * 内存泄漏监控
+     */
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    /**
+     * Kotlin依赖
+     */
+    kapt 'com.android.databinding:compiler:2.3.3'
+    /**
+     * 路由注解处理器
+     */
+    kapt "com.enation.geamtear:jrouter-compiler:$router_version"
+    /**
+     * 外部化Moudle配置
+     * moudle独立编译配置
+     */
+    if (!componentTag) {
+        compile project(':welcome')
+        compile project(':home')
+        compile project(':cart')
+        compile project(':goods')
+        compile project(':member')
+        compile project(':order')
+        compile project(':promotion')
+        compile project(':shop')
+        compile project(':setting')
+        compile project(':extra')
+    }
+    /**
+     * JavaShopAndroid 中间件依赖库
+     */
+    compile project(':middleware')
+
+    /**
+     *  constraint-layout布局依赖
+     */
+    compile 'com.android.support.constraint:constraint-layout:1.1.0-beta5'
+
+}
+
+///**
+// * kawo组件化框架配置
+// */
+//kawo {
+//    /**
+//     * Aop注解排除Jar
+//     */
+//    aspectExcludeJarFilter 'com.enation.geamtear.pay','AlipaySdk'
+//}
+//
+

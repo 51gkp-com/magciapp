@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/javashop_color_transparent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <ListView
+            android:id="@+id/goods_search_filter_first_lv"
+            android:layout_width="match_parent"
+            android:divider="@null"
+            android:layout_height="100dp"
+            android:background="@color/javashop_color_goods_search_more_bg"
+            />
+        <View
+            android:background="@color/color_mask"
+            android:id="@+id/goods_search_filter_first_mask"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/goods_search_filter_first_lv"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+        <View style="@style/gray_line"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="javashop_state_bar_height" type="dimen" format="float">0.35</item>
+    <item name="javashop_content_height" type="dimen" format="float">0.65</item>
+    <item name="javashop_top_bar_height" type="dimen" format="float">0.13</item>
+</resources>

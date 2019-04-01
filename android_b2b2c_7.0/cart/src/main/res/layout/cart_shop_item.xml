@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="shopItemData"
+            type="com.enation.javashop.android.middleware.model.CartShopItemViewModel"/>
+        <import type="android.view.View"/>
+    </data>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="@color/javashop_color_transparent">
+
+   <android.support.constraint.ConstraintLayout
+       style="@style/constraintLayout_config"
+       app:layout_constraintLeft_toLeftOf="parent"
+       app:layout_constraintRight_toRightOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
+       app:layout_constraintHeight_default="percent"
+       app:layout_constraintHeight_percent="1"
+       >
+       <android.support.constraint.Guideline
+           android:id="@+id/ver_line"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           app:layout_constraintGuide_percent="0.7"/>
+
+       <CheckBox
+           android:id="@+id/cart_shop_item_check"
+           android:layout_width="25dp"
+           android:layout_height="25dp"
+           android:layout_gravity="center_vertical"
+           android:layout_marginLeft="10dp"
+           android:background="@drawable/javashop_check_box_selector"
+           android:button="@null"
+           android:checked="@{shopItemData.isCheck}"
+           android:visibility="visible"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           />
+
+       <ImageView
+           android:id="@+id/cart_shop_item_icon_iv"
+           style="@style/constraintLayout_config"
+           android:layout_height="20dp"
+           android:layout_marginLeft="5dp"
+           android:src="@{shopItemData.self ? @drawable/javashop_cart_self_shop_icon : @drawable/javashop_cart_shop_icon}"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintDimensionRatio="w,1:1"
+           app:layout_constraintHeight_default="percent"
+           app:layout_constraintHeight_percent="0.5"
+           app:layout_constraintLeft_toRightOf="@id/cart_shop_item_check"
+           app:layout_constraintTop_toTopOf="parent"/>
+
+       <TextView
+           android:id="@+id/cart_shop_item_name_tv"
+           style="@style/constraintLayout_config"
+           android:layout_marginLeft="5dp"
+           android:textColor="@color/javashop_color_cart_shop_item_name_tc"
+           android:gravity="center_vertical"
+           android:text="@{shopItemData.name}"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintLeft_toRightOf="@id/cart_shop_item_icon_iv"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintRight_toLeftOf="@id/ver_line"
+           app:autoSizeMaxTextSize="100sp"
+           app:autoSizeMinTextSize="10sp"
+           app:autoSizeStepGranularity="2sp"
+           app:autoSizeTextType="uniform"
+           tools:ignore="MissingPrefix"
+           app:layout_constraintHeight_default="percent"
+           app:layout_constraintHeight_percent="0.65"
+           />
+
+       <TextView
+           android:id="@+id/cart_shop_item_right_tv"
+           style="@style/constraintLayout_config"
+           app:autoSizeMaxTextSize="100sp"
+           app:autoSizeMinTextSize="10sp"
+           app:autoSizeStepGranularity="2sp"
+           app:autoSizeTextType="uniform"
+           tools:ignore="MissingPrefix"
+           android:gravity="right"
+           android:text="@string/javashop_cart_shop_item_title"
+           android:textColor="@color/javashop_color_navy"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintHeight_default="percent"
+           app:layout_constraintHeight_percent="0.6"
+           app:layout_constraintLeft_toRightOf="@id/ver_line"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           android:visibility="@{shopItemData.hasBouns ?  View.VISIBLE : View.GONE}"
+           android:layout_marginRight="10dp"
+           />
+
+
+   </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
+</layout>

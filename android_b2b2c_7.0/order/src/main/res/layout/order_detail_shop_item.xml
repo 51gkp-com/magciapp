@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        android:background="@color/javashop_color_white"
+        bind:backgroundColor="@{@color/javashop_color_white}"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/order_detail_shop_iv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/javashop_icon_shop_black"
+            app:layout_constraintDimensionRatio="h,1:1"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintWidth_percent="0.06"
+            />
+
+        <com.enation.javashop.android.lib.widget.AutoSizeTextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toRightOf="@id/order_detail_shop_iv"
+            app:layout_constraintTop_toTopOf="@id/order_detail_shop_iv"
+            app:layout_constraintBottom_toBottomOf="@id/order_detail_shop_iv"
+            android:layout_marginLeft="10dp"
+            android:text="爪哇商城自营店铺"
+            android:lines="1"
+            android:gravity="center"
+            android:maxLength="20"
+            android:ellipsize="end"
+            android:textColor="@color/javashop_color_navy"
+            android:id="@+id/order_detail_shop_name_tv"
+            />
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toRightOf="@id/order_detail_shop_name_tv"
+            app:layout_constraintTop_toTopOf="@id/order_detail_shop_name_tv"
+            app:layout_constraintBottom_toBottomOf="@id/order_detail_shop_name_tv"
+            android:layout_marginLeft="5dp"
+            app:layout_constraintHeight_percent="0.7"
+            app:layout_constraintDimensionRatio="w,1:1"
+            android:src="@drawable/javashop_icon_into_black"
+            />
+    </android.support.constraint.ConstraintLayout>
+</layout>

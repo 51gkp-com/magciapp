@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <com.enation.javashop.android.lib.widget.CommonActionBar
+            android:id="@+id/memeber_commont_list_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            bind:auto_topbar_height="@{true}"
+            app:title_text="评价中心"
+            app:title_text_color="@color/javashop_color_black"
+            app:left_image="@drawable/javashop_back_black"
+            android:background="@color/javashop_color_white"
+            />
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refresh"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#eef2f3"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/memeber_commont_list_topbar"
+            >
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/memeber_commont_list_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#eef2f3"
+                />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>
