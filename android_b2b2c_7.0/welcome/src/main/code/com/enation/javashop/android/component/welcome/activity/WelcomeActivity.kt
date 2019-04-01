@@ -73,7 +73,7 @@ class WelcomeActivity :BaseActivity<WelcomePresenter,ActivityWelcomeBinding>(), 
      * @Note   跳转首页
      */
     override fun toHome() {
-        AppTool.Time.delay(500) {
+        AppTool.Time.delay(2000) {
             push("/home/main")
             finish()
         }

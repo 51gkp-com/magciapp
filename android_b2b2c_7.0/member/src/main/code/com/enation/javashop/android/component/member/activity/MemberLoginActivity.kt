@@ -250,7 +250,7 @@ class MemberLoginActivity :BaseActivity<MemberLoginPresenter,MemberLoginLayBindi
         member_login_vcode_et.addTextChangedListener(this)
         /**设置平台协议相关*/
         val agreeHeader = "登录即代表您已同意"
-        val agreeName = "《JavaShop隐私协议》"
+        val agreeName = "《玛吉克商城隐私协议》"
         member_login_agreement_tv.text = SpannableString(agreeHeader+agreeName).then {
             self ->
             self.setSpan(object : ClickableSpan(){
@@ -331,9 +331,9 @@ class MemberLoginActivity :BaseActivity<MemberLoginPresenter,MemberLoginLayBindi
     private fun showAgreement(){
         push("/common/web",{
             //标题
-            it.withString("title","《JavaShop隐私协议》")
+            it.withString("title","《玛吉克商城隐私协议》")
             //URL
-            it.withString("url","http://m.buyer.javamall.com.cn/")
+            it.withString("url","http://www.51gkp.com/help/privacy")
         })
     }
 
