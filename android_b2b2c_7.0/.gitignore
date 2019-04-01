@@ -32,5 +32,8 @@ proguard/
 *.ipr
 *.iws
 .idea/
+*.keystore
+
+gradle/
 
 app/release/
