@@ -45,12 +45,12 @@ class JavaShopConfigCenter {
     /**
      * WeChat appid 微信支付 微信分享时使用
      */
-    val WECHAT_APP_ID = "wx35ab0feca89af616"
+    val WECHAT_APP_ID = "wx6b5d33d917d2e9c2"
 
     /**
      * 微信Secret 微信分享 微信登录使用
      */
-    val WECHAT_SCRECT = "632d25a392d1ca2e191b35fcbd015e28"
+    val WECHAT_SCRECT = "458da59523a85e3cbc4d7a232755660e"
 
     /**
      * 微博Key 微博分享登录时使用

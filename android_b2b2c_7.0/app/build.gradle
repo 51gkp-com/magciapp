@@ -15,7 +15,7 @@ android {
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
     defaultConfig {
-        applicationId "com.enation.app.javashop"
+        applicationId "com.bj.magic.shop"
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
         versionCode app_version_code
