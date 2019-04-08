@@ -30,7 +30,7 @@ class JavaShopConfigCenter {
     /**
      * 基础URL
      */
-    val WAP_BASE_URL = "http://m.buyer.javamall.com.cn/"
+    val WAP_BASE_URL = "http://m.51gkp.com/"
 
     /**
      * 商品页面URL
@@ -45,12 +45,12 @@ class JavaShopConfigCenter {
     /**
      * WeChat appid 微信支付 微信分享时使用
      */
-    val WECHAT_APP_ID = "wx35ab0feca89af616"
+    val WECHAT_APP_ID = "wx6b5d33d917d2e9c2"
 
     /**
      * 微信Secret 微信分享 微信登录使用
      */
-    val WECHAT_SCRECT = "632d25a392d1ca2e191b35fcbd015e28"
+    val WECHAT_SCRECT = "458da59523a85e3cbc4d7a232755660e"
 
     /**
      * 微博Key 微博分享登录时使用
@@ -60,7 +60,7 @@ class JavaShopConfigCenter {
     /**
      * 微博AuthUrl，微博分享登录时使用
      */
-    val WEIBO_URL = "http://www.javamall.com.cn/"
+    val WEIBO_URL = "http://www.51gkp.com/"
 
     /**
      * 微博 Secret，微博分享登录时使用
@@ -85,12 +85,12 @@ class JavaShopConfigCenter {
     /**
      * umeng推送Key
      */
-    val UMENG_KEY = "596453f8c895762c7e00028e"
+    val UMENG_KEY = "5ca179db0cafb2285400045a"
 
     /**
      * umeng推送Secret
      */
-    val UMENG_SCRECT = "53d15319bc4f06721db8dd3e4813c7df"
+    val UMENG_SCRECT = "635fa5657b5fbd9a7d51e5376767011e"
 
     /**
      * @author LDD
