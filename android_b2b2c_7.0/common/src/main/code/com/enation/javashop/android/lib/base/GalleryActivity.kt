@@ -290,7 +290,7 @@ import javax.inject.Inject
         if (destContext == null) {
             return
         }
-        val imm = destContext!!.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        val imm = destContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 ?: return
         val arr = arrayOf("mCurRootView", "mServedView", "mNextServedView")
         var f: Field?
@@ -301,13 +301,13 @@ import javax.inject.Inject
                 .forEach {
                     try {
                         f = imm.javaClass.getDeclaredField(it)
-                        if (f!!.isAccessible === false) {
+                        if (!f!!.isAccessible) {
                             f!!.isAccessible = true
                         }
                         obj_get = f!!.get(imm)
                         if (obj_get != null && obj_get is View) {
                             val v_get = obj_get as View?
-                            if (v_get!!.getContext() === destContext) { // 被InputMethodManager持有引用的context是想要目标销毁的
+                            if (v_get!!.context === destContext) { // 被InputMethodManager持有引用的context是想要目标销毁的
                                 f!!.set(imm, null) // 置空，破坏掉path to gc节点
                             }
                         }
@@ -349,7 +349,7 @@ import javax.inject.Inject
     override fun invoke(invokeParam: InvokeParam?): PermissionManager.TPermissionType {
         val type = PermissionManager.checkPermission(TContextWrap.of(this), invokeParam!!.getMethod())
         if (PermissionManager.TPermissionType.WAIT == type) {
-            this.invokeparam = invokeParam!!
+            this.invokeparam = invokeParam
         }
         return type
     }

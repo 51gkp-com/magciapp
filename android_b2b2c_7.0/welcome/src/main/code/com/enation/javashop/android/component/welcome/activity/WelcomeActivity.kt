@@ -1,5 +1,6 @@
 package com.enation.javashop.android.component.welcome.activity
 
+import android.Manifest
 import android.graphics.Color
 import android.view.View
 import com.enation.javashop.android.component.welcome.launch.WelcomeLaunch
@@ -14,7 +15,12 @@ import com.enation.javashop.android.middleware.model.AdViewModel
 import com.enation.javashop.android.welcome.R
 import com.enation.javashop.android.welcome.databinding.ActivityWelcomeBinding
 import com.enation.javashop.net.engine.model.NetState
+import com.enation.javashop.net.engine.plugin.permission.RxPermissions
+import com.enation.javashop.net.engine.plugin.permission.RxPermissionsFragment
+import com.enation.javashop.net.engine.utils.ThreadFromUtils
 import com.enation.javashop.utils.base.tool.CommonTool
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
 import java.util.*
 
 
@@ -63,7 +69,21 @@ class WelcomeActivity :BaseActivity<WelcomePresenter,ActivityWelcomeBinding>(), 
     override fun init() {
         AppTool.SystemUI.showNavigationBar(this,false)
         AppTool.SystemUI.ImmersiveWithBottomBarColor(this,Color.BLACK)
-        toHome()
+        requestPermissions()
+    }
+
+    private fun requestPermissions(){
+        Observable.just("").compose(RxPermissions(this).ensure(Manifest.permission.CAMERA,
+                Manifest.permission.READ_EXTERNAL_STORAGE,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.ACCESS_WIFI_STATE)).subscribe {
+                if (it){
+                    toHome()
+                }else{
+                    showMessage("请重新授权，进入App")
+                    requestPermissions()
+                }
+        }.joinManager(disposableManager)
     }
 
     /**
@@ -73,7 +93,7 @@ class WelcomeActivity :BaseActivity<WelcomePresenter,ActivityWelcomeBinding>(), 
      * @Note   跳转首页
      */
     override fun toHome() {
-        AppTool.Time.delay(2000) {
+        AppTool.Time.delay(500) {
             push("/home/main")
             finish()
         }

@@ -135,6 +135,7 @@ class MemberSendMessageActivity :BaseActivity<MemberSendMessagePresenter,MemberS
                 member_send_message_title.text = "请输入已绑定手机号"
                 member_send_message_register_tv.visibility = View.GONE
                 title = "忘记密码"
+                member_send_message_send_tv.text = "验证账户"
             }
             GlobalState.UPDATE_PHONE ->{
                 title = "更换手机号"
@@ -198,7 +199,12 @@ class MemberSendMessageActivity :BaseActivity<MemberSendMessagePresenter,MemberS
         }
     }
 
-
+    override fun sendFindPwdMessage(mobile: String) {
+        member_send_message_send_tv.text = "发送验证码"
+        member_send_message_iphone_et.text.clear()
+        member_send_message_vcode_et.text.clear()
+        loadVcode()
+    }
 
     /**
      * @author LDD
@@ -230,7 +236,11 @@ class MemberSendMessageActivity :BaseActivity<MemberSendMessagePresenter,MemberS
                 presenter.sendBindPhoneNumVcode(phoneNum,sendVcode)
             }
             GlobalState.FIND_PASSWORD ->{
-                presenter.sendFindPasswordVcode(phoneNum,sendVcode)
+                if (member_send_message_send_tv.text.contains("验证账户")){
+                    presenter.checkFindPwdAccount(phoneNum,sendVcode)
+                }else{
+                    presenter.sendFindPasswordVcode(phoneNum,sendVcode)
+                }
             }
             GlobalState.UPDATE_PHONE ->{
                 presenter.sendBindPhoneNumVcode(phoneNum,sendVcode)

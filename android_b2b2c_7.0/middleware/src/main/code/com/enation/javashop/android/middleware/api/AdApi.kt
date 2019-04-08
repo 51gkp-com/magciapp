@@ -2,7 +2,7 @@ package com.enation.javashop.android.middleware.api
 
 import com.enation.javashop.android.middleware.model.AdViewModel
 import io.reactivex.Observable
-import retrofit2.http.GET
+import retrofit2.http.*
 
 /**
  * @author LDD

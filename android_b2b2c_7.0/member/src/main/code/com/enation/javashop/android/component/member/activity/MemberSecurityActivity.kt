@@ -94,6 +94,7 @@ class MemberSecurityActivity :BaseActivity<MemberSecurityPresenter,MemberSecurit
             }
             CommonTool.createVerifyDialog(message,"取消","确定",this,object :CommonTool.DialogInterface{
                 override fun yes() {
+
                     action.invoke()
                 }
 

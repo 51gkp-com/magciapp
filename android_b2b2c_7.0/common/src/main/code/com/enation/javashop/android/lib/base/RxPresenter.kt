@@ -38,12 +38,13 @@ abstract class RxPresenter<out ViewType : BaseContract.BaseView> : DisposableMan
             this.mView = view.to()
         }catch (e :Exception){
             errorLog("Interface Not Implement","Fragment/Activity 没有实现对应BaseView接口")
+            throw java.lang.Exception("Interface Not Implement : Fragment/Activity 没有实现对应BaseView接口")
         }
         /**注册网络状态事件*/
-        var disposable = getEventCenter().register(NetStateEvent::class.java,{
+        var disposable = getEventCenter().register(NetStateEvent::class.java) {
             result ->
             this.mView!!.networkMonitor(result.state)
-        })
+        }
         addDisposable(disposable)
     }
 

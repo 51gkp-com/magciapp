@@ -1,5 +1,6 @@
 package com.enation.javashop.android.component.member.activity
 
+import android.graphics.Bitmap
 import android.graphics.Color
 import android.text.Editable
 import android.text.TextWatcher
@@ -17,6 +18,7 @@ import com.enation.javashop.android.lib.widget.VcodeDialog
 import com.enation.javashop.android.middleware.enum.GlobalState
 import com.enation.javashop.android.middleware.event.LoginEvent
 import com.enation.javashop.android.middleware.event.LogoutEvent
+import com.enation.javashop.android.middleware.logic.contract.member.ImageVcodeContract
 import com.enation.javashop.android.middleware.logic.contract.member.MemberPasswordContract
 import com.enation.javashop.android.middleware.logic.presenter.member.ImageVcodePresenter
 import com.enation.javashop.android.middleware.logic.presenter.member.MemberPasswordPresenter
@@ -32,7 +34,7 @@ import javax.inject.Inject
  * @Note   会员密码页面
  */
 @Router(path = "/member/security/password/main")
-class MemberPasswordActivity :BaseActivity<MemberPasswordPresenter,MemberPasswordLayBinding>(),MemberPasswordContract.View,TextWatcher {
+class MemberPasswordActivity :BaseActivity<MemberPasswordPresenter,MemberPasswordLayBinding>(),MemberPasswordContract.View,ImageVcodeContract.View,TextWatcher {
 
 
     @Autowired(name = "auth",required = false)
@@ -80,6 +82,10 @@ class MemberPasswordActivity :BaseActivity<MemberPasswordPresenter,MemberPasswor
      */
     override fun bindDagger() {
         MemberLaunch.component.inject(this)
+    }
+
+    override fun renderVcode(bitmap: Bitmap) {
+
     }
 
     /**

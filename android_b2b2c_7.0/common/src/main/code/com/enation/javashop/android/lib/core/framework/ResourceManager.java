@@ -127,7 +127,7 @@ public class ResourceManager {
                         loadResource.resources = resources;
                         loadResource.packageName = info.packageName;
                         loadResource.classLoader = new DexClassLoader(resourcePath, mDexDir, null,
-                                mContext.getClassLoader());    //   设置正确的类加载器, 因为需要去加载R文件
+                                mContext.getClassLoader());    //    设置正确的类加载器, 因为需要去加载R文件
                         mRescources.put(info.packageName, loadResource);    // 缓存
                         Log.w(TAG, "build resource:" + resourcePath);
                     } catch (Exception e) {

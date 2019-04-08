@@ -12,6 +12,7 @@ import dagger.Component
  */
 @Component(dependencies = arrayOf(ApplicationComponent::class))
 interface OrderComponent {
+
     fun inject(activity :OrderListActivity)
 
     fun inject(activity :OrderDetailActivity)

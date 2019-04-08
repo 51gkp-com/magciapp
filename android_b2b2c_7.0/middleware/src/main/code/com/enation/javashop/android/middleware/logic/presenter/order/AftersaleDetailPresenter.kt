@@ -45,7 +45,9 @@ class AftersaleDetailPresenter @Inject constructor() : RxPresenter<AftersaleDeta
 
     override fun load(sn: String) {
         aftersaleApi.getAfterSaleDetail(sn)
-                .map { return@map AftersaleDetailModel.map(it.toJsonObject())}
+                .map {
+                    return@map AftersaleDetailModel.map(it.toJsonObject())
+                }
                 .compose(ThreadFromUtils.defaultSchedulers()).subscribe(observer)
     }
 

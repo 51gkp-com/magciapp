@@ -1,7 +1,6 @@
 package com.enation.javashop.android.component.member.fragment
 
-import android.content.Intent
-import android.os.Handler
+import android.os.AsyncTask
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.alibaba.android.vlayout.DelegateAdapter
@@ -199,7 +198,6 @@ class MemberFragment : BaseFragment<MemberFragmentPresenter, MemberFragLayBindin
                 false
             }
         }))
-
         /**开启刷新*/
         mViewDataBinding.memberRefreshLayout.setHeaderHeight((ScreenTool.getScreenWidth(activity) * 0.5).pxToDp().toFloat())
         mViewDataBinding.memberRefreshLayout.setEnableLoadMore(true)

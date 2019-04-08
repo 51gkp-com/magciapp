@@ -162,16 +162,20 @@ class MemberCheckVcodeActivity :BaseActivity<MemberCheckVcodePresenter,MemberChe
                 vcodePresenter.loadRegisterImageVcode()
             }
             GlobalState.BIND_PHONE ->{
-                vcodePresenter.loadBindImageVcode()
+
             }
             GlobalState.FIND_PASSWORD ->{
                 vcodePresenter.loadFindImageVcdoe()
             }
             GlobalState.UPDATE_PHONE ->{
-                vcodePresenter.loadBindImageVcode()
+                if(newPhone){
+                    vcodePresenter.loadBindImageVcode()
+                }else{
+                    vcodePresenter.loadValidateMobileVcodde()
+                }
             }
             GlobalState.EDIT_PASSWORD ->{
-                vcodePresenter.loadEditImageVcode()
+                vcodePresenter.loadValidateMobileVcodde()
             }
         }
     }
@@ -190,11 +194,16 @@ class MemberCheckVcodeActivity :BaseActivity<MemberCheckVcodePresenter,MemberChe
         AppTool.SystemUI.ImmersiveWithBottomBarColor(this, Color.BLACK)
         member_check_vocde_resend_tv.movementMethod = LinkMovementMethod.getInstance()
         member_check_vocde_resend_tv.highlightColor = Color.TRANSPARENT
-        if (type == GlobalState.EDIT_PASSWORD){
+        if (type == GlobalState.EDIT_PASSWORD || (type == GlobalState.UPDATE_PHONE && !newPhone)){
             sendMessage()
         }else{
             timeStart()
         }
+    }
+
+
+    override fun sendFindPwdMessage(mobile: String) {
+
     }
 
     /**
@@ -286,14 +295,17 @@ class MemberCheckVcodeActivity :BaseActivity<MemberCheckVcodePresenter,MemberChe
                     sendMessagePresenter.sendRegisterVcode(phoneNum,code)
                 }
                 GlobalState.BIND_PHONE ->{
-                    sendMessagePresenter.sendBindPhoneNumVcode(phoneNum,code)
+
                 }
                 GlobalState.FIND_PASSWORD ->{
                     sendMessagePresenter.sendFindPasswordVcode(phoneNum,code)
                 }
                 GlobalState.UPDATE_PHONE ->{
-                    sendMessagePresenter.sendBindPhoneNumVcode(phoneNum,code)
-                }
+                    if(newPhone){
+                        sendMessagePresenter.sendBindPhoneNumVcode(phoneNum,code)
+                    }else{
+                        sendMessagePresenter.sendEditPasswordNumVcode(phoneNum,code)
+                    }                }
                 GlobalState.EDIT_PASSWORD ->{
                     sendMessagePresenter.sendEditPasswordNumVcode(phoneNum,code)
                 }
@@ -330,7 +342,6 @@ class MemberCheckVcodeActivity :BaseActivity<MemberCheckVcodePresenter,MemberChe
                 presenter.checkRegisterVcode(vcode,phoneNum)
             }
             GlobalState.BIND_PHONE ->{
-                presenter.checkBindPhoneNumVcode(vcode,phoneNum)
             }
             GlobalState.FIND_PASSWORD ->{
                 presenter.checkFindPasswordVcode(vcode,phoneNum)
@@ -339,7 +350,11 @@ class MemberCheckVcodeActivity :BaseActivity<MemberCheckVcodePresenter,MemberChe
                 presenter.checkEditPasswordVcode(vcode,phoneNum)
             }
             GlobalState.UPDATE_PHONE ->{
-                presenter.checkUpDatePhoneNumVcode(vcode,phoneNum)
+                if(newPhone){
+                    presenter.checkUpDatePhoneNumVcode(vcode,phoneNum)
+                }else{
+                    presenter.checkBindPhoneNumVcode(vcode,phoneNum)
+                }
             }
             GlobalState.DYNAMIC_LOGIN ->{
                 if (connectInfo != null){
@@ -371,6 +386,7 @@ class MemberCheckVcodeActivity :BaseActivity<MemberCheckVcodePresenter,MemberChe
     private fun next(){
         if (type == GlobalState.UPDATE_PHONE){
             if (newPhone){
+                showMessage("更改手机号成功，请重新登录！")
                 pop()
             }else{
                 push("/member/security/phone/input",{

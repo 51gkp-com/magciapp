@@ -130,6 +130,7 @@ object ApiManager {
          */
         val PASSPORT_API :PassportApi by lazy { apiFectory.createService(PassportApi::class.java, urlManager.buyer) }
 
+
         /**
          * @author LDD
          * @From   ApiManager

@@ -1,9 +1,7 @@
 package com.enation.javashop.android.middleware.logic.presenter.member
 
 import com.enation.javashop.android.lib.base.RxPresenter
-import com.enation.javashop.android.lib.utils.AppTool
-import com.enation.javashop.android.lib.utils.ConnectionObserver
-import com.enation.javashop.android.lib.utils.getEventCenter
+import com.enation.javashop.android.lib.utils.*
 import com.enation.javashop.android.middleware.api.PassportApi
 import com.enation.javashop.android.middleware.di.MiddlewareDaggerComponent
 import com.enation.javashop.android.middleware.logic.contract.member.MemberSendMessageContract
@@ -13,6 +11,7 @@ import com.enation.javashop.net.engine.plugin.connection.ConnectionQuality
 import com.enation.javashop.net.engine.plugin.exception.ExceptionHandle
 import com.enation.javashop.net.engine.utils.ThreadFromUtils
 import io.reactivex.disposables.Disposable
+import java.util.ArrayList
 import javax.inject.Inject
 
 
@@ -40,8 +39,13 @@ class MemberSendMessagePresenter @Inject constructor() :RxPresenter<MemberSendMe
         }
 
         override fun onNextWithConnection(result: Any, connectionQuality: ConnectionQuality) {
-            providerView().complete("发送成功",Send)
-            providerView().sendSuccess(result as String)
+            if (result is ArrayList<*>){
+                providerView().complete("验证成功")
+                providerView().sendFindPwdMessage(result.get(1) as String)
+            }else{
+                providerView().complete("发送成功",Send)
+                providerView().sendSuccess(result as String)
+            }
         }
 
         override fun onErrorWithConnection(error: ExceptionHandle.ResponeThrowable, connectionQuality: ConnectionQuality) {
@@ -73,10 +77,10 @@ class MemberSendMessagePresenter @Inject constructor() :RxPresenter<MemberSendMe
      * @param  sendVcode 发送短信验证码
      */
     override fun sendBindPhoneNumVcode(phoneNum: String,sendVcode :String) {
-        providerView().start()
-        AppTool.Time.delay(1000,{
-            providerView().complete("发送成功",Send)
-        })
+        passportApi.sendBindPassword(phoneNum,sendVcode)
+                .map { return@map phoneNum }
+                .compose(ThreadFromUtils.defaultSchedulers())
+                .subscribe(observer)
     }
 
     /**
@@ -88,10 +92,10 @@ class MemberSendMessagePresenter @Inject constructor() :RxPresenter<MemberSendMe
      * @param  sendVcode 发送短信验证码
      */
     override fun sendEditPasswordNumVcode(phoneNum: String,sendVcode :String) {
-        providerView().start()
-        AppTool.Time.delay(1000,{
-            providerView().complete("发送成功",Send)
-        })
+        passportApi.sendEditMessage(sendVcode)
+                .map { return@map phoneNum }
+                .compose(ThreadFromUtils.defaultSchedulers())
+                .subscribe(observer)
     }
 
     /**
@@ -119,9 +123,10 @@ class MemberSendMessagePresenter @Inject constructor() :RxPresenter<MemberSendMe
      */
     override fun sendFindPasswordVcode(phoneNum: String,sendVcode :String) {
         providerView().start()
-        AppTool.Time.delay(1000,{
-            providerView().complete("发送成功",Send)
-        })
+        passportApi.sendMessageFindPassword(sendVcode)
+                .map { return@map phoneNum }
+                .compose(ThreadFromUtils.defaultSchedulers())
+                .subscribe(observer)
     }
 
     /**
@@ -135,6 +140,21 @@ class MemberSendMessagePresenter @Inject constructor() :RxPresenter<MemberSendMe
     override fun sendPhoneLoginMessage(phone:String,vcode:String){
         passportApi.sendMessageLogin(captcha = vcode,mobile = phone)
                 .map { return@map phone }
+                .compose(ThreadFromUtils.defaultSchedulers())
+                .subscribe(observer)
+    }
+
+    override fun checkFindPwdAccount(account: String, vcode: String) {
+        passportApi.checkFindPwdAccount(account,vcode)
+                .map {
+                    val uuid = it.toJsonObject().valueString("uuid")
+                    if(uuid.isNotEmpty()){
+                        UUID.refreshUUID(uuid)
+                    }
+                    var a = ArrayList<String>()
+                    a.add("Find")
+                    a.add(account)
+                    return@map  a}
                 .compose(ThreadFromUtils.defaultSchedulers())
                 .subscribe(observer)
     }

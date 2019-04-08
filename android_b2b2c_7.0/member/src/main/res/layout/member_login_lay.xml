@@ -587,7 +587,7 @@
             style="@style/auto_text_size"
             android:gravity="center"
             android:textColor="@color/javashop_color_nomal_color_gray"
-            android:text="登录即代表您已同意《玛吉克商城隐私协议》"
+            android:text="登录即代表您已同意《JavaShop隐私协议》"
             android:background="@color/javashop_color_white"
             android:layout_marginBottom="10dp"
             bind:layout_constraintBottom_toBottomOf="parent"

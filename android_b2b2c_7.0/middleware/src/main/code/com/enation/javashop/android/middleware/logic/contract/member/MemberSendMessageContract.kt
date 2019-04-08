@@ -27,6 +27,8 @@ interface MemberSendMessageContract {
          */
         fun sendSuccess(mobile :String)
 
+        fun sendFindPwdMessage(mobile :String)
+
     }
 
     /**
@@ -86,6 +88,8 @@ interface MemberSendMessageContract {
          * @param  vcode 手机验证码
          */
         fun sendPhoneLoginMessage(phone:String,vcode:String)
+
+        fun checkFindPwdAccount(account:String,vcode:String)
 
     }
 

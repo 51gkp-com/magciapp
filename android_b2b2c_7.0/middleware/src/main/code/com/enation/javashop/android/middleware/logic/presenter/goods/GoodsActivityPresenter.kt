@@ -52,8 +52,6 @@ class GoodsActivityPresenter @Inject constructor() : RxPresenter<GoodsActivityCo
     @Inject
     protected lateinit var memberApi: MemberApi
 
-
-
     private val observer = object: ConnectionObserver<Any>(){
         override fun onStartWithConnection() {
             providerView().start()

@@ -85,9 +85,8 @@ class MemberPasswordPresenter @Inject constructor() :RxPresenter<MemberPasswordC
      * @param  vcode 图片验证码
      */
     override fun editPassword(password: String, vcode: String) {
-        memberApi.updatePassword(UUID.uuid,vcode,password)
+        memberApi.updatePassword(UUID.uuid,vcode,MD5Util.MD5Encode(password,null)!!)
                 .map {
-                    MemberState.manager.updateMember(MemberViewModel.map(it))
                     return@map GlobalState.EDIT_PASSWORD }
                 .compose(ThreadFromUtils.defaultSchedulers())
                 .subscribe(observer)
@@ -133,9 +132,8 @@ class MemberPasswordPresenter @Inject constructor() :RxPresenter<MemberPasswordC
      * @param  vcode  验证码
      */
     override fun findPassword(password: String, vcode: String) {
-        passportApi.findPassword(UUID.uuid,password)
+        passportApi.findPassword(UUID.uuid,MD5Util.MD5Encode(password,null)!!)
                 .map {
-                    MemberState.manager.updateMember(MemberViewModel.map(it))
                     return@map GlobalState.EDIT_PASSWORD }
                 .compose(ThreadFromUtils.defaultSchedulers())
                 .subscribe(observer)

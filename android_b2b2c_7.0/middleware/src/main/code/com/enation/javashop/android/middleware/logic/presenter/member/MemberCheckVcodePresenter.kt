@@ -96,7 +96,7 @@ class MemberCheckVcodePresenter @Inject constructor() :RxPresenter<MemberCheckVc
      * @param  phoneNum 手机号
      */
     override fun checkUpDatePhoneNumVcode(vcode: String, phoneNum: String) {
-        memberApi.checkExchangeBindCode(vcode).compose(ThreadFromUtils.defaultSchedulers()).subscribe(observer)
+        memberApi.bindMobile(phoneNum,vcode).compose(ThreadFromUtils.defaultSchedulers()).subscribe(observer)
     }
 
 
@@ -136,7 +136,7 @@ class MemberCheckVcodePresenter @Inject constructor() :RxPresenter<MemberCheckVc
      * @param  phoneNum 手机号
      */
     override fun checkEditPasswordVcode(vcode: String, phoneNum: String) {
-        memberApi.checkUpdatePwdCode(vcode).map { 1 }.compose(ThreadFromUtils.defaultSchedulers()).subscribe(observer)
+        memberApi.checkUpdatePwdCode(vcode).compose(ThreadFromUtils.defaultSchedulers()).subscribe(observer)
 
     }
 

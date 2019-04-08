@@ -3,7 +3,6 @@ package com.enation.javashop.android.middleware.router
 import android.content.Context
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
-import com.enation.javashop.android.jrouter.JRouter
 import com.enation.javashop.android.jrouter.external.annotation.Interceptor
 import com.enation.javashop.android.jrouter.logic.datainfo.Postcard
 import com.enation.javashop.android.jrouter.logic.listener.InterceptorListener

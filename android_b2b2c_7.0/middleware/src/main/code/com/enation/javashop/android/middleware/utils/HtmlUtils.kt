@@ -39,8 +39,8 @@ class HtmlUtils {
 
         datas.forEach { item ->
             result += "<td colspan=\"2\"><strong>${item.name}</strong></td>"
-            item.child.forEach({ child ->
-                    result += "<tr> <td>${child.name}</td> <td>${child.value}</td> </tr>"
+            item.child.forEach(action = { child ->
+                result += "<tr> <td>${child.name}</td> <td>${child.value}</td> </tr>"
             })
         }
 

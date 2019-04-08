@@ -28,7 +28,7 @@ data class ChildCategoryViewModel(val catId: Int ,          /**分类ID*/
 /**
  *
  * @author Snow
- * @Note   子分类可以
+ * @Note   子分类可以 
  */
 data class  ChildCategoryShell(val parentName :String,                          /** 二级分类名称 */
                                val item :ArrayList<ChildCategoryViewModel>)     /** 三级分类集合 */{

@@ -41,6 +41,9 @@ interface PassportApi {
     @GET("passport/login/{mobile}")
     fun mobileLogin(@Path("mobile") mobile : String , @Query("sms_code") smsCode: String, @Query("uuid") uuid :String = UUID.uuid) : Observable<ResponseBody>
 
+    @GET("passport/find-pwd")
+    fun checkFindPwdAccount(@Query("account") account :String, @Query("captcha") captcha :String,@Query("uuid") uuid :String = UUID.uuid) : Observable<ResponseBody>
+
     /**
      * @author LDD
      * @From   PassportApi
@@ -50,7 +53,7 @@ interface PassportApi {
      * @param  captcha 验证码
      */
     @POST("passport/find-pwd/send")
-    fun sendMessageFindPassword(@Query("uuid") uuid :String = UUID.uuid , @Query("captcha") captcha :String): Observable<ResponseBody>
+    fun sendMessageFindPassword( @Query("captcha") captcha :String,@Query("uuid") uuid :String = UUID.uuid): Observable<ResponseBody>
 
     /**
      * @author LDD
@@ -76,7 +79,11 @@ interface PassportApi {
     @POST("passport/login/smscode/{mobile}")
     fun sendMessageLogin(@Path("mobile") mobile : String , @Query("uuid") uuid :String = UUID.uuid ,@Query("captcha") captcha :String): Observable<ResponseBody>
 
+    @POST("members/security/send")
+    fun sendEditMessage(@Query("captcha") captcha :String,@Query("uuid") uuid :String = UUID.uuid ): Observable<ResponseBody>
 
+    @POST("members/security/bind/send/{mobile}")
+    fun sendBindPassword(@Path("mobile") mobile : String,@Query("captcha") captcha :String,@Query("uuid") uuid :String = UUID.uuid ): Observable<ResponseBody>
     /**
      * @author LDD
      * @From   PassportApi

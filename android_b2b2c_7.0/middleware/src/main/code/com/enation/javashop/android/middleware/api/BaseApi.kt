@@ -10,7 +10,6 @@ import retrofit2.http.*
  * Created by LDD on 2018/8/10.
  */
 interface BaseApi {
-
     @GET("captchas/{uuid}/{scene}")
     fun loadVcode(@Path("uuid") uuid :String = UUID.uuid,@Path("scene") scene :String) : Observable<ResponseBody>
 

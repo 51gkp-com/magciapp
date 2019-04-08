@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Context.WIFI_SERVICE
 import android.net.wifi.WifiManager
 import com.enation.javashop.android.lib.base.BaseApplication
+import com.enation.javashop.utils.base.cache.ACache
 
 
 /**
@@ -21,7 +22,7 @@ class UUID {
     companion object {
 
         /*UUID*/
-        val uuid = get()
+        var uuid = get()
 
         /**
          * @author LDD
@@ -32,18 +33,25 @@ class UUID {
          */
         @SuppressLint("MissingPermission", "WifiManagerLeak", "HardwareIds")
         private fun get() : String{
-            var macAddress = ""
-            val wifiManager :WifiManager? = BaseApplication.appContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
-            val info = wifiManager?.connectionInfo
-            if (!wifiManager!!.isWifiEnabled) {
-                //必须先打开，才能获取到MAC地址
-                wifiManager.isWifiEnabled = true
-                wifiManager.isWifiEnabled = false
-            }
-            if (null != info) {
-                macAddress = info.macAddress
+            var macAddress = ACache.get(BaseApplication.appContext).getAsString("UUID")
+            if (macAddress == null){
+                val wifiManager :WifiManager? = BaseApplication.appContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+                val info = wifiManager?.connectionInfo
+                if (!wifiManager!!.isWifiEnabled) {
+                    //必须先打开，才能获取到MAC地址
+                    wifiManager.isWifiEnabled = true
+                    wifiManager.isWifiEnabled = false
+                }
+                if (null != info) {
+                    macAddress = info.macAddress
+                }
             }
             return macAddress
+        }
+
+        fun refreshUUID(id : String){
+            uuid = id
+            ACache.get(BaseApplication.appContext).put("UUID", uuid)
         }
 
     }

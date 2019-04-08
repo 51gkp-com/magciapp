@@ -15,7 +15,7 @@ android {
     aaptOptions.cruncherEnabled = false
     aaptOptions.useNewCruncher = false
     defaultConfig {
-        applicationId "com.bj.magic.shop"
+        applicationId "com.enation.app.javashop"
         minSdkVersion min_sdk_version
         targetSdkVersion target_sdk_version
         versionCode app_version_code
@@ -92,16 +92,16 @@ dependencies {
      * moudle独立编译配置
      */
     if (!componentTag) {
-        compile project(':welcome')
-        compile project(':home')
-        compile project(':cart')
-        compile project(':goods')
-        compile project(':member')
-        compile project(':order')
-        compile project(':promotion')
-        compile project(':shop')
-        compile project(':setting')
-        compile project(':extra')
+        compile project(':welcome') // ===> 开始模块  建议在模块内添加广告 欢迎页 等页面
+        compile project(':home')   // ===> 主页模块  里面一般是App的首页 分类楼层页面
+        compile project(':cart')   // ===> 购物车模块 主要就是购物车的逻辑的Item
+        compile project(':goods')  // ===> 商品模块   主要是商品列表 商品详细 等等页面
+        compile project(':member') // ===> 会员模块  主要是会员信息 会员修改 会员主页 等
+        compile project(':order')  // ===> 订单模块 订单列表 详细 退货等
+        compile project(':promotion') // ===> 促销模块 秒杀 团购 等
+        compile project(':shop')      // ===> 店铺模块 店铺列表 详细 等
+        compile project(':setting')   // ===> 设置模块 设置 缓存 App分享等
+        compile project(':extra')    // ===> 额外的一些页面 比如二维码扫描等一些附加功能
     }
     /**
      * JavaShopAndroid 中间件依赖库

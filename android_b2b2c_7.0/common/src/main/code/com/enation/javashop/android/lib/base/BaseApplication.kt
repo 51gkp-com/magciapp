@@ -47,10 +47,6 @@ open class BaseApplication : MultiDexApplication() {
         super.onCreate()
         closeAndroidPDialog()
         AppTool.SystemUI.initStatusBarHeight(applicationContext)
-        /// 自动适配界面
-//        AutoSizeConfig.getInstance()
-//                .setCustomFragment(true)
-//        AutoSize.initCompatMultiProcess(this)
         /**Logger初始化*/
         LoggerFactory.create(baseContext)
                      .diskCache()

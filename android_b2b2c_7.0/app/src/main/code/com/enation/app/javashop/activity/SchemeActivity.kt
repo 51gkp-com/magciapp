@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity
 import com.enation.javashop.android.jrouter.JRouter
 import com.enation.javashop.android.jrouter.logic.datainfo.Postcard
 import com.enation.javashop.android.jrouter.logic.listener.NavListener
+import java.lang.ref.PhantomReference
+import java.lang.ref.ReferenceQueue
 
 /**
  * Created by LDD on 2017/9/10.
@@ -19,7 +21,6 @@ class SchemeActivity:AppCompatActivity() {
                 finish()
             }
         })
-
     }
 
 }

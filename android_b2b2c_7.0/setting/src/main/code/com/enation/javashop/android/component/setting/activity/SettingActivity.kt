@@ -106,7 +106,7 @@ class SettingActivity :BaseActivity<SettingActivityPresenter,SettingActLayBindin
         }
         setting_action_share.setOnClickListener {
             UmengShare.Init(activity.weak().get())
-                    .web("")
+                    .web("https://sj.qq.com/myapp/detail.htm?apkName=com.enation.app.javashop")
                     .setWebTitle("JavashopApp下载")
                     .setWebImage(BitmapFactory.decodeResource(BaseApplication.appContext.resources,R.mipmap.launcher))
                     .setWebDescription("Javashop网上商城")
