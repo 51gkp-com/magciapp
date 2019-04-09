@@ -72,11 +72,11 @@ private class DevUrlManager : UrlManager{
 private class ProUrlManager : UrlManager{
 
     override val base: String
-        get() = "http://api.%s.javamall.com.cn/"
+        get() = "http://%s.51gkp.com/"
 
     override val buyer: String
-        get() = "http://39.96.219.167:7002"
+        get() = String.format(base,"buyerapi")
 
     override val basic: String
-        get() = "http://39.96.219.167:7000"
+        get() = String.format(base,"baseapi")
 }
