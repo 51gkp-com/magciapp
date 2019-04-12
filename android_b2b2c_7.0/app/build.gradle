@@ -31,6 +31,14 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        cashier3Config {
+            keyAlias 'magic'
+            keyPassword 'zhangbo'
+            storeFile file('../shop.keystore')
+            storePassword 'zhangbo'
+        }
+    }
     buildTypes {
         release {
             minifyEnabled false
@@ -38,6 +46,7 @@ android {
         }
         debug {
             minifyEnabled false
+            signingConfig signingConfigs.cashier3Config
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
