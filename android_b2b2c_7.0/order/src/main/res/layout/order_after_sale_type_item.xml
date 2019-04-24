@@ -24,7 +24,7 @@
             android:layout_height="0dp"
             app:layout_constraintHeight_percent="0.3"
             android:background="@color/javashop_color_header_a"
-            android:text="本次售后服务由JavaShop为您提供"
+            android:text="本次售后服务由玛吉克商城为您提供"
             android:textSize="10sp"
             />
         <View

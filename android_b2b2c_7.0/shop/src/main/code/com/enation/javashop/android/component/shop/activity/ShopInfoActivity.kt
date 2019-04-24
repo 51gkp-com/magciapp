@@ -77,7 +77,7 @@ class ShopInfoActivity : BaseActivity<ShopInfoPresenter, ShopInfoActLayBinding>(
         }.setRightClickListener {
             presenter.share(this,
                     JavaShopConfigCenter.INSTANCE.WAP_SELLER_URL+"$shopId",
-                    mViewBinding.data.logo,"JavaShop网商店铺",mViewBinding.data.name)
+                    mViewBinding.data.logo,"玛吉克商城网商店铺",mViewBinding.data.name)
         }
         mViewBinding.shopInfoCollectTop.setOnClickListener {
             presenter.collectShop(shopId,!mViewBinding.data.favorited)

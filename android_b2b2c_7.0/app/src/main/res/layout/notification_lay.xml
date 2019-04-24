@@ -23,7 +23,7 @@
             android:layout_height="match_parent">
             <TextView
                 android:id="@+id/notification_title"
-                android:text="JavaShop"
+                android:text="@string/javashop_app_name"
                 android:textColor="#fff"
                 android:gravity="bottom"
                 android:textSize="15dp"

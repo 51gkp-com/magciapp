@@ -128,7 +128,7 @@ class MemberSendMessageActivity :BaseActivity<MemberSendMessagePresenter,MemberS
                 member_send_message_register_tv.visibility = View.GONE
             }
             GlobalState.REGISTER_USER ->{
-                member_send_message_title.text = "欢迎注册JavaShop账号"
+                member_send_message_title.text = "欢迎注册玛吉克商城账号"
                 title = "注册"
             }
             GlobalState.FIND_PASSWORD ->{
@@ -170,7 +170,7 @@ class MemberSendMessageActivity :BaseActivity<MemberSendMessagePresenter,MemberS
         }
         /**设置平台协议相关*/
         val agreeHeader = "点击按钮即代表您已同意"
-        val agreeName = "《JavaShop使用协议》"
+        val agreeName = "《玛吉克商城使用协议》"
         member_send_message_register_tv.text = SpannableString(agreeHeader+agreeName).then {
             self ->
             self.setSpan(object : ClickableSpan(){
@@ -214,7 +214,7 @@ class MemberSendMessageActivity :BaseActivity<MemberSendMessagePresenter,MemberS
      */
     private fun showAgreement(){
         push("/common/web",{
-            it.withString("title","《JavaShop使用协议》")
+            it.withString("title","《玛吉克商城使用协议》")
             it.withString("url","http://m.buyer.javamall.com.cn/")
         })
     }

@@ -162,7 +162,7 @@ class HomeActivity : BaseActivity<HomeActivityPresenter,HomeActLayBinding>(),Hom
             super.onBackPressed()
         }else{
             clickTime = System.currentTimeMillis()
-            showMessage("再按一次退出JavaShop")
+            showMessage("再按一次退出玛吉克商城")
         }
     }
 

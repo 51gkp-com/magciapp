@@ -181,7 +181,7 @@ class GoodsActivity :BaseActivity<GoodsActivityPresenter,GoodsActLayBinding>(),G
             (fragments[0] as GoodsInfoFragment).specShow()
         }
         goods_act_share.setOnClickListener {
-            presenter.shareGoods(this,JavaShopConfigCenter.INSTANCE.WAP_GOODS_URL+"${goodsId}",goods.goodsImage,goods.name,"JavaShop网上商城,选你所选爱你所爱!")
+            presenter.shareGoods(this,JavaShopConfigCenter.INSTANCE.WAP_GOODS_URL+"${goodsId}",goods.goodsImage,goods.name,"玛吉克商城,选你所选爱你所爱!")
         }
         goods_act_more.setOnClickListener {
             menuView.show(it)
