@@ -126,7 +126,7 @@ import java.lang.ref.WeakReference
                     fragment.get()?.push("/member/address/list",isNeedLogin = !MemberState.manager.getLoginState())
                 }
                 self.memberUserService.setOnClickListener {
-                    CommonTool.createVerifyDialog("是否拨打玛吉克商城官方客服热线(010-8817888)","取消","确定",fragment.get()?.activity,object :CommonTool.DialogInterface{
+                    CommonTool.createVerifyDialog("是否拨打玛吉克商城官方客服热线","取消","确定",fragment.get()?.activity,object :CommonTool.DialogInterface{
 
                         override fun yes() {
 
