@@ -1,4 +1,4 @@
-package com.enation.app.javashop.wxapi
+package com.bj.magic.shop.wxapi
 
 import com.umeng.weixin.callback.WXCallbackActivity
 

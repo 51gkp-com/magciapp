@@ -119,6 +119,7 @@ class Application : BaseApplication() {
 
     private fun initPush() {
         UMConfigure.init(this, JavaShopConfigCenter.INSTANCE.UMENG_KEY, "Umeng", UMConfigure.DEVICE_TYPE_PHONE, JavaShopConfigCenter.INSTANCE.UMENG_SCRECT)
+        UMConfigure.setLogEnabled(true)
         /**初始化推送对象*/
         val mPushAgent = PushAgent.getInstance(this)
         /**开启推送*/

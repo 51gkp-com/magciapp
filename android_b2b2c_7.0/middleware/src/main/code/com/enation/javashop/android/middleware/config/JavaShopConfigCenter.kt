@@ -50,7 +50,7 @@ class JavaShopConfigCenter {
     /**
      * 微信Secret 微信分享 微信登录使用
      */
-    val WECHAT_SCRECT = "458da59523a85e3cbc4d7a232755660e"
+    val WECHAT_SCRECT = "6843ed17aa7244df4f1a3b7598189d0a"
 
     /**
      * 微博Key 微博分享登录时使用
@@ -80,7 +80,7 @@ class JavaShopConfigCenter {
     /**
      * Alipay分享Id
      */
-    val ALIPAY_KEY = "2017101909390405"
+    val ALIPAY_KEY = "2019042364308245"
 
     /**
      * umeng推送Key

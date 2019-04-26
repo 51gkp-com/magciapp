@@ -1,4 +1,4 @@
-package com.enation.app.javashop.wxapi
+package com.bj.magic.shop.wxapi
 
 import android.app.Activity
 import android.content.Intent

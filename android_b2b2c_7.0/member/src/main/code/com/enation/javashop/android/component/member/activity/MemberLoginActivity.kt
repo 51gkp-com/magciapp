@@ -228,7 +228,7 @@ class MemberLoginActivity :BaseActivity<MemberLoginPresenter,MemberLoginLayBindi
                     }
 
                     override fun onStart(p0: SHARE_MEDIA?) {
-
+                        debugLog("onStart", "onStart")
                     }
                 }
                 when(imageView.id){
