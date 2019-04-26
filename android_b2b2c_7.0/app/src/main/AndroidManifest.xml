@@ -75,7 +75,7 @@
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
 
         <activity
-            android:name=".WBShareActivity"
+            android:name="com.bj.magic.shop.WBShareActivity"
             android:configChanges="keyboardHidden|orientation"
             >
             <intent-filter>
