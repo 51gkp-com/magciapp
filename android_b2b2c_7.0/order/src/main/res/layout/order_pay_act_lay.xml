@@ -18,7 +18,7 @@
             bind:auto_topbar_height="@{true}"
             android:visibility="visible"
             app:title_text_color="@color/javashop_color_black"
-            app:title_text="Javashop收银台"
+            app:title_text="玛吉克商城收银台"
             app:left_image="@drawable/javashop_back_black"
             android:background="@color/javashop_color_white"
             />
@@ -96,7 +96,7 @@
                 android:id="@+id/order_pay_method_header"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:text="Javashop支付方式"
+                android:text="玛吉克商城支付方式"
                 android:gravity="center_vertical"
                 android:textSize="12sp"
                 android:textColor="#898a8c"
