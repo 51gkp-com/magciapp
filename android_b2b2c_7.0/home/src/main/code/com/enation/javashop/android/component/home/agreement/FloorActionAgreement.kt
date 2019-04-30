@@ -88,7 +88,12 @@ interface FloorActionAgreement {
             }else if (item.action.contains("seckill")){
                 secKill()
             }else if (item.action.contains("goods")){
-                goods(item.action.removePrefix("/goods/").toInt())
+                val action = item.action
+                if(action.contains("?")) {
+                    searchGoodsForCatrgory(action.removePrefix("/goods?category=").toInt(),"")
+                }else{
+                    goods(action.removePrefix("/goods/").toInt())
+                }
             }else if(item.action.contains("coupons")){
                 couponHall()
             }else{

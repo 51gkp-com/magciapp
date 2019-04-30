@@ -266,7 +266,7 @@ class HomeFragment : BaseFragment<HomeFragmentPresenter,HomeFragLayBinding>(),Ho
     override fun searchGoodsForCatrgory(catId: Int, text: String) {
         push("/goods/list",{
             it.withInt("category",catId)
-            it.withString("hint","搜索结果")
+            it.withString("hint", text)
         })
     }
 
