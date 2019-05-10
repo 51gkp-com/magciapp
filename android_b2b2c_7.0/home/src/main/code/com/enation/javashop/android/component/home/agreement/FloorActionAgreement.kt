@@ -90,7 +90,7 @@ interface FloorActionAgreement {
             }else if (item.action.contains("goods")){
                 val action = item.action
                 if(action.contains("?")) {
-                    searchGoodsForCatrgory(action.removePrefix("/goods?category=").toInt(),"")
+                    searchGoodsForCatrgory(action.removePrefix("/goods?category=").toInt(),item.text)
                 }else{
                     goods(action.removePrefix("/goods/").toInt())
                 }
