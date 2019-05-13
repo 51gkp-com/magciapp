@@ -467,16 +467,17 @@
                 bind:layout_constraintDimensionRatio="w,1:1"
                 android:src="@drawable/umeng_socialize_qq"
                 bind:layout_constraintVertical_bias="0"
+                android:visibility="gone"
                 />
             <ImageView
                 android:id="@+id/member_login_connect_wechat"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                bind:layout_constraintLeft_toRightOf="@id/member_login_connect_qq"
+                bind:layout_constraintLeft_toLeftOf="parent"
                 bind:layout_constraintTop_toTopOf="parent"
                 bind:layout_constraintBottom_toBottomOf="parent"
                 bind:layout_constraintHeight_percent="0.7"
-                bind:layout_constraintRight_toLeftOf="@+id/member_login_connect_weibo"
+                bind:layout_constraintRight_toLeftOf="@+id/member_login_connect_alipay"
                 bind:layout_constraintDimensionRatio="w,1:1"
                 android:src="@drawable/umeng_socialize_wechat"
                 bind:layout_constraintVertical_bias="0"
@@ -493,12 +494,13 @@
                 bind:layout_constraintDimensionRatio="w,1:1"
                 android:src="@drawable/umeng_socialize_sina"
                 bind:layout_constraintVertical_bias="0"
+                android:visibility="gone"
                 />
             <ImageView
                 android:id="@+id/member_login_connect_alipay"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                bind:layout_constraintLeft_toRightOf="@id/member_login_connect_weibo"
+                bind:layout_constraintLeft_toRightOf="@id/member_login_connect_wechat"
                 bind:layout_constraintTop_toTopOf="parent"
                 bind:layout_constraintBottom_toBottomOf="parent"
                 bind:layout_constraintHeight_percent="0.7"
@@ -523,6 +525,7 @@
                 app:autoSizeStepGranularity="1sp"
                 app:autoSizeTextType="uniform"
                 tools:ignore="MissingPrefix"
+                android:visibility="gone"
                 />
 
             <TextView
@@ -557,6 +560,7 @@
                 app:autoSizeStepGranularity="1sp"
                 app:autoSizeTextType="uniform"
                 tools:ignore="MissingPrefix"
+                android:visibility="gone"
                 />
 
             <TextView
