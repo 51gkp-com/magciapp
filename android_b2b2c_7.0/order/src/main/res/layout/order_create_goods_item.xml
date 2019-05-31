@@ -35,7 +35,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:src="@drawable/javashop_icon_more_black"
+            android:src="@drawable/javashop_icon_into_black"
             android:layout_marginRight="10dp"
             app:layout_constraintWidth_percent="0.05"
             />

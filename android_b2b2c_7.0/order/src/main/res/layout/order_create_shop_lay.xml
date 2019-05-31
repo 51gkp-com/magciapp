@@ -104,12 +104,12 @@
                 android:id="@+id/more"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:src="@drawable/javashop_icon_more_black"
+                android:src="@drawable/javashop_icon_into_black"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/count"
-                app:layout_constraintWidth_percent="0.08"
+                app:layout_constraintWidth_percent="0.05"
                 app:layout_constraintDimensionRatio="h,1:1"
                 />
         </android.support.constraint.ConstraintLayout>

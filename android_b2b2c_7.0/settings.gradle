@@ -1,1 +1,1 @@
-include ':app', ':common', ':welcome', ':home', ':resource', ':middleware', ':cart', ':member', ':goods', ':shop', ':order', ':promotion', ':setting', ':extra'
+include ':app', ':common', ':welcome', ':home', ':resource', ':middleware', ':cart', ':member', ':goods', ':shop', ':order', ':promotion', ':setting', ':extra', ':im'
