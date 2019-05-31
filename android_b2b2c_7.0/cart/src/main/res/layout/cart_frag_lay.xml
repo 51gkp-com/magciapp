@@ -18,6 +18,23 @@
             app:title_text_color="@color/javashop_color_black"
             app:holder_visibility="false"
             />
+
+        <TextView
+            android:id="@+id/cart_frag_tip_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="温馨提示:购物车中包含询价商品，请与商家确认价格无误再行支付"
+            android:textColor="@color/javashop_color_pay_red"
+            android:lines="1"
+            android:textSize="12sp"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cart_frag_header"
+            app:layout_constraintBottom_toTopOf="@id/cart_refresh_layout"
+            />
         <android.support.constraint.ConstraintLayout
             android:id="@+id/cart_frag_bottom_bar"
             android:layout_width="0dp"
@@ -145,7 +162,7 @@
             app:layout_constraintBottom_toTopOf="@id/cart_frag_bottom_bar"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cart_frag_header">
+            app:layout_constraintTop_toBottomOf="@id/cart_frag_tip_tv">
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/cart_frag_rc_list"
                 android:layout_width="match_parent"
