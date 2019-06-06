@@ -24,6 +24,7 @@ import com.enation.javashop.android.lib.base.BaseApplication
 import com.enation.javashop.android.lib.utils.*
 import com.enation.javashop.android.lib.widget.PopCommonView
 import com.enation.javashop.android.lib.widget.PopWindowCompatible
+import com.enation.javashop.android.middleware.bind.DataBindingHelper
 import com.enation.javashop.android.middleware.model.CouponViewModel
 import com.enation.javashop.android.middleware.model.GoodsViewModel
 import com.enation.javashop.android.middleware.model.PromotionDetailViewModel
@@ -300,7 +301,18 @@ class GoodsInfoMessageAdapter(val fragment: GoodsInfoFragment,var goods :GoodsVi
             }
 
             binding.goodsInfoNameTv.text = goods.name
-            binding.goodsInfoPriceTv.text = String.format("￥%.2f",goods.price)
+
+            if(goods.canInquiry == 1){
+                binding.goodsInfoPriceTv.text = "询价"
+                binding.goodsInfoPriceTv.setTextColor(binding.root.context.resources.getColor(R.color.javashop_color_inquiry_price_yellow))
+                binding.goodsInfoPriceTv.setOnClickListener {
+                    DataBindingHelper.gotoInquiryPrice(activity, goods.goodsImage, goods.name, goods.defaultSpec, goods.goodsId)
+                }
+            } else {
+                binding.goodsInfoPriceTv.text = String.format("￥%.2f",goods.price)
+                binding.goodsInfoPriceTv.setTextColor(binding.root.context.resources.getColor(R.color.javashop_color_price_red))
+            }
+
             if (goods.collect) {
                 binding.goodsInfoCollectGoodsIv.setImageResource(R.drawable.javashop_icon_heart_selected)
                 binding.goodsInfoCollectGoodsTv.text = "已关注"

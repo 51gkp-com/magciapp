@@ -83,7 +83,7 @@ class GoodsInfoWeigetAdapter(var weight :Double) :BaseDelegateAdapter<BaseRecycl
      */
     override fun onBindViewHolder(holder: BaseRecyclerViewHolder<GoodsInfoAddressItemBinding>?, position: Int) {
         holder?.bind { binding ->
-            binding.goodsInfoWeightContentTv.text = String.format("%.2fg",weight)
+            binding.goodsInfoWeightContentTv.text = String.format("%.2fkg",weight)
         }
     }
 }

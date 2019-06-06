@@ -111,7 +111,6 @@ dependencies {
         compile project(':shop')      // ===> 店铺模块 店铺列表 详细 等
         compile project(':setting')   // ===> 设置模块 设置 缓存 App分享等
         compile project(':extra')    // ===> 额外的一些页面 比如二维码扫描等一些附加功能
-        compile project(':im')    // ===> 客服模块
     }
     /**
      * JavaShopAndroid 中间件依赖库

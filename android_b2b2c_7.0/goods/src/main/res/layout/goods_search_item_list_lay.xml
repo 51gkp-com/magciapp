@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:bind="http://schemas.android.com/tools">
     <data>
+        <import type="android.view.View"/>
         <variable
             name="data"
             type="com.enation.javashop.android.middleware.model.GoodsItemViewModel"/>
@@ -95,6 +96,21 @@
                         app:price_type="true"
                         android:textSize="20sp"
                         android:textColor="@color/javashop_color_price_red"
+                        android:visibility="@{data.canInquiry == 0 ? View.VISIBLE : View.GONE}"
+                        />
+                    <com.enation.javashop.android.lib.widget.AutoSizeTextView
+                        android:id="@+id/goods_search_list_item_inquiry_price_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="询价"
+                        android:gravity="bottom"
+                        android:lines="1"
+                        app:price_type="true"
+                        android:textSize="20sp"
+                        android:textColor="@color/javashop_color_inquiry_price_yellow"
+                        bind:to_inquiry_price="@{data}"
+                        android:visibility="@{data.canInquiry == 1 ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintLeft_toRightOf="@id/goods_search_list_item_price_tv"
                         />
                     <LinearLayout
                         android:id="@+id/goods_search_list_item_promotion_lay"
@@ -102,7 +118,7 @@
                         android:layout_height="0dp"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toRightOf="@id/goods_search_list_item_price_tv"
+                        app:layout_constraintLeft_toRightOf="@id/goods_search_list_item_inquiry_price_tv"
                         app:layout_constraintRight_toRightOf="parent"
                         android:orientation="horizontal"
                         android:gravity="center_vertical"

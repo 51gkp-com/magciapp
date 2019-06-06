@@ -48,6 +48,7 @@ dependencies {
 
     compile project(':common')
     compile project(':resource')
+    compile project(':im')    // ===> 客服模块
 
     /**
      * Dagger编译依赖

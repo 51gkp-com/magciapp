@@ -60,6 +60,7 @@
     <color name="javashop_color_goods_search_filter_frag_parent_item_tc">#313131</color>
     <color name="javashop_color_goods_search_filter_frag_parent_item_value_tc">#6a6a6a</color>
     <color name="javashop_color_price_red">#e83437</color>
+    <color name="javashop_color_inquiry_price_yellow">#ffad26</color>
     <color name="javashop_color_goods_search_filter_brand_world_bg">#f1f5f6</color>
     <color name="javashop_color_line_gray">#e4e6e5</color>
     <color name="javashop_color_goods_search_filter_brand_name_selected_bg">#f55158</color>

@@ -25,7 +25,8 @@ data class GoodsItemViewModel(val goodsName : String ,                          
                               var priceColor:String = "#fbac42",                /**字体颜色 扩展字段*/
                               var countNum :Int = 0,                            /**商品总库存*/
                               var salesEnable :Boolean = false,                 /**促销是否开启*/
-                              var buyNum  :Int = 0)                             /**购买个数 订单或售后模块用到*/{
+                              var buyNum  :Int = 0,                             /**购买个数 订单或售后模块用到*/
+                              var canInquiry :Int = 0)                          /**是否询价*/{
 
     companion object {
 
@@ -128,7 +129,8 @@ data class GoodsItemViewModel(val goodsName : String ,                          
                     "",
                     "",
                     ArrayList(),
-                    jsonObject.valueDouble("price"))
+                    jsonObject.valueDouble("price"),
+                    canInquiry = jsonObject.valueInt("can_inquiry"))
 
         }
 

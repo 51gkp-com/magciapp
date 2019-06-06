@@ -1,5 +1,6 @@
 package com.enation.javashop.android.middleware.bind
 
+import android.app.Activity
 import android.databinding.BindingAdapter
 import android.graphics.Color
 import android.support.constraint.ConstraintLayout
@@ -10,9 +11,11 @@ import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StrikethroughSpan
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import com.enation.javashop.android.jrouter.JRouter
 import com.enation.javashop.android.lib.base.BaseApplication
 import com.enation.javashop.android.lib.utils.*
@@ -21,6 +24,8 @@ import com.enation.javashop.android.middleware.api.MemberState
 import com.enation.javashop.android.middleware.model.GoodsItemViewModel
 import com.enation.javashop.utils.base.tool.BaseToolActivity
 import com.enation.javashop.utils.base.tool.ScreenTool
+import com.m7.imkfsdk.KfStartHelper
+import com.moor.imkf.model.entity.CardInfo
 
 
 object DataBindingHelper {
@@ -100,6 +105,20 @@ object DataBindingHelper {
             }.execute()
         }))
     }
+
+    @BindingAdapter(value = "bind:to_inquiry_price", requireAll = true)
+    @JvmStatic
+    fun toInquiryPrice(view: View, goods: GoodsItemViewModel) {
+        view.setOnClickListener(OnClickListenerAntiViolence(event = {
+            Do.prepare().doOnBack { call ->
+                if(view.context is Activity){
+                    gotoInquiryPrice((view.context as Activity), goods.goodsImage, goods.goodsName, "",  goods.goodsId)
+                }
+                call.invoke()
+            }.execute()
+        }))
+    }
+
 
     @BindingAdapter(value = "bind:action", requireAll = true)
     @JvmStatic
@@ -239,5 +258,17 @@ object DataBindingHelper {
     fun collectText(collectNum :Int):String{
         return "$collectNum 人关注"
     }
+
+    @JvmStatic
+    fun gotoInquiryPrice(activity: Activity, icon: String, name: String, des: String , goodsId: Int){
+        val helper = KfStartHelper(activity)
+        val ci = CardInfo(icon, name, des, "￥询价", "http://www.51gkp.com/goods/$goodsId")
+        helper.setCard(ci)
+        val accessId = "ef326d00-80eb-11e9-a433-57669e6b65a0"
+        val userName = "玛吉克商城客服"
+        val userId = "001"
+        helper.initSdkChat(accessId, userName, userId)
+    }
+
 
 }

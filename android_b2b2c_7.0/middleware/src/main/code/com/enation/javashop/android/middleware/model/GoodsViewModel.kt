@@ -25,7 +25,8 @@ data class GoodsViewModel(val name:String,              /**商品名*/
                           var commentGrade  :Double,
                           var intro :String = "",
                           var params :ArrayList<GoodsParamParent> = ArrayList(),
-                          var collect :Boolean = false) {
+                          var collect :Boolean = false,
+                          var canInquiry :Int = 0)      /**是否询价*/{
 
     companion object {
 
@@ -63,7 +64,8 @@ data class GoodsViewModel(val name:String,              /**商品名*/
                     "默认",
                     json.valueDouble("grade"),
                     intro = json.valueString("intro"),
-                    params = params
+                    params = params,
+                    canInquiry = json.valueInt("can_inquiry")
                     )
         }
 
