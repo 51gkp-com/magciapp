@@ -91,7 +91,12 @@ class FloorMenuAdapter(val data : ArrayList<FloorMenuModel>,val agreement: Floor
     }
 
     override fun onBindViewHolder(holder: BaseRecyclerViewHolder<FloorItemMenuLayBinding>?, position: Int) {
-        holder?.itemView?.layoutParams = VirtualLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (ScreenTool.getScreenWidth(holder?.databinding?.root?.context!!)*0.4).toInt())
+
+        val isSingle = data.size <= 5
+        val viewHeight = (ScreenTool.getScreenWidth(holder?.databinding?.root?.context!!)*0.4).toInt()
+        val height = if(isSingle) viewHeight/2 else viewHeight
+
+        holder?.itemView?.layoutParams = VirtualLayoutManager.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, height)
         holder?.bind { self ->
             self.root.setBackgroundResource(R.drawable.javashop_corners_common)
             self.menuB.removeAllViews()
@@ -102,6 +107,11 @@ class FloorMenuAdapter(val data : ArrayList<FloorMenuModel>,val agreement: Floor
                 }else{
                     self.menuA.addView(createMenuItem(self.root.context,item))
                 }
+            }
+            if(isSingle){
+                self.menuB.visibility = View.GONE
+            } else {
+                self.menuB.visibility = View.VISIBLE
             }
         }
     }
