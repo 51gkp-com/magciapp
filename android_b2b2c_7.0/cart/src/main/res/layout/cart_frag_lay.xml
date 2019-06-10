@@ -26,7 +26,7 @@
             android:text="温馨提示:购物车中包含询价商品，请与商家确认价格无误再行支付"
             android:textColor="@color/javashop_color_pay_red"
             android:lines="1"
-            android:textSize="12sp"
+            android:textSize="11sp"
             android:gravity="center"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
