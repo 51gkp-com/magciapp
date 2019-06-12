@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:bind="http://schemas.android.com/tools">
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
     <data>
         <import type="android.view.View"/>
         <variable
@@ -10,8 +11,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:tools="http://schemas.android.com/tools">
         <android.support.constraint.ConstraintLayout
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -98,20 +98,46 @@
                         android:textColor="@color/javashop_color_price_red"
                         android:visibility="@{data.canInquiry == 0 ? View.VISIBLE : View.GONE}"
                         />
-                    <com.enation.javashop.android.lib.widget.AutoSizeTextView
+
+                    <android.support.constraint.ConstraintLayout
                         android:id="@+id/goods_search_list_item_inquiry_price_tv"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="询价"
-                        android:gravity="bottom"
-                        android:lines="1"
-                        app:price_type="true"
-                        android:textSize="20sp"
-                        android:textColor="@color/javashop_color_inquiry_price_yellow"
-                        bind:to_inquiry_price="@{data}"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:background="#e6a23c"
                         android:visibility="@{data.canInquiry == 1 ? View.VISIBLE : View.GONE}"
-                        app:layout_constraintLeft_toRightOf="@id/goods_search_list_item_price_tv"
-                        />
+                        bind:to_inquiry_price="@{data}"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        >
+
+                        <ImageView
+                            android:id="@+id/iv_inquiry_price"
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@mipmap/service"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:lines="1"
+                            android:text="询价"
+                            android:textColor="#ffffff"
+                            android:textSize="18sp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toRightOf="@id/iv_inquiry_price"
+                            />
+
+                    </android.support.constraint.ConstraintLayout>
                     <LinearLayout
                         android:id="@+id/goods_search_list_item_promotion_lay"
                         android:layout_width="0dp"

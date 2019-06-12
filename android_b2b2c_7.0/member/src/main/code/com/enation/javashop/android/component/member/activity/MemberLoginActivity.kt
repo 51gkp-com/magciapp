@@ -337,7 +337,7 @@ class MemberLoginActivity :BaseActivity<MemberLoginPresenter,MemberLoginLayBindi
             //标题
             it.withString("title","《玛吉克商城隐私协议》")
             //URL
-            it.withString("url","http://www.51gkp.com/help/privacy")
+            it.withString("url","http://www.51gkp.com/help/116")
         })
     }
 

@@ -31,6 +31,7 @@ import com.enation.javashop.android.middleware.model.PromotionDetailViewModel
 import com.enation.javashop.utils.base.tool.CommonTool
 import com.enation.javashop.utils.base.tool.ScreenTool
 import kotlinx.android.synthetic.main.goods_act_lay.*
+import kotlinx.android.synthetic.main.goods_info_message_item.view.*
 import kotlinx.android.synthetic.main.goods_search_act_lay.*
 import java.util.*
 
@@ -303,14 +304,15 @@ class GoodsInfoMessageAdapter(val fragment: GoodsInfoFragment,var goods :GoodsVi
             binding.goodsInfoNameTv.text = goods.name
 
             if(goods.canInquiry == 1){
-                binding.goodsInfoPriceTv.text = "询价"
-                binding.goodsInfoPriceTv.setTextColor(binding.root.context.resources.getColor(R.color.javashop_color_inquiry_price_yellow))
-                binding.goodsInfoPriceTv.setOnClickListener {
+                binding.goodsInfoPriceTv.visibility = View.INVISIBLE
+                binding.goodsInfoInquiryPriceLay.visibility = View.VISIBLE
+                binding.goodsInfoInquiryPriceLay.setOnClickListener {
                     DataBindingHelper.gotoInquiryPrice(activity, goods.goodsImage, goods.name, goods.defaultSpec, goods.goodsId)
                 }
             } else {
                 binding.goodsInfoPriceTv.text = String.format("￥%.2f",goods.price)
-                binding.goodsInfoPriceTv.setTextColor(binding.root.context.resources.getColor(R.color.javashop_color_price_red))
+                binding.goodsInfoPriceTv.visibility = View.VISIBLE
+                binding.goodsInfoInquiryPriceLay.visibility = View.INVISIBLE
             }
 
             if (goods.collect) {
