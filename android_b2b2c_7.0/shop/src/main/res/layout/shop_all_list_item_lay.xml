@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
+        <import type="android.view.View"/>
         <variable
             name="data"
             type="com.enation.javashop.android.middleware.model.GoodsItemViewModel"/>
@@ -96,7 +97,51 @@
                 android:textColor="@color/javashop_color_price_red"
                 android:gravity="center_vertical"
                 android:layout_marginBottom="10dp"
+                android:visibility="@{data.canInquiry == 1 ? View.GONE : View.VISIBLE}"
                 />
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/goods_search_list_item_inquiry_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="#e6a23c"
+                android:visibility="@{data.canInquiry == 1 ? View.VISIBLE : View.GONE}"
+                bind:to_inquiry_price="@{data}"
+                app:layout_constraintBottom_toTopOf="@id/shop_all_list_comment_num_tv"
+                app:layout_constraintVertical_bias="0.8"
+                app:layout_constraintLeft_toRightOf="@id/shop_list_item_iv"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="10dp"
+                >
+
+                <ImageView
+                    android:id="@+id/iv_inquiry_price"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@mipmap/service"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lines="1"
+                    android:text="询价"
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/iv_inquiry_price"
+                    />
+
+            </android.support.constraint.ConstraintLayout>
+
             <View
                 android:layout_width="0dp"
                 android:layout_height="2px"

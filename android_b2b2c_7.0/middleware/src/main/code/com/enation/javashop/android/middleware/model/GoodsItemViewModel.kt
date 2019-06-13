@@ -145,7 +145,8 @@ data class GoodsItemViewModel(val goodsName : String ,                          
                     "",
                     "",
                     ArrayList(),
-                    jsonObject.valueDouble("price")
+                    jsonObject.valueDouble("price"),
+                    canInquiry = jsonObject.valueInt("can_inquiry")
             )
 
         }
