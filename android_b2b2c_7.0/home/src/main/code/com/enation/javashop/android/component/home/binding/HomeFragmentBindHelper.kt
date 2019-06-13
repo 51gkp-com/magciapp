@@ -1,8 +1,8 @@
 package com.enation.javashop.android.component.home.binding
 
-import android.databinding.BindingAdapter
 import android.databinding.ObservableField
-import android.support.constraint.ConstraintLayout
+
+
 
 /**
  * @author LDD
@@ -18,6 +18,14 @@ class HomeFragmentBindHelper {
      * @Note  滑动距离
      */
     val scrollY = ObservableField(0)
+
+
+    /**
+     * @Name  alpha
+     * @Type  ObservableField<Int>
+     * @Note  搜索栏alpha
+     */
+    val alpha = ObservableField(0.0f)
 
     /**
      * @Name  image

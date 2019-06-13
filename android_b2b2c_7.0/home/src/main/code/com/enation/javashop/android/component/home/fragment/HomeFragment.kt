@@ -143,10 +143,11 @@ class HomeFragment : BaseFragment<HomeFragmentPresenter,HomeFragLayBinding>(),Ho
                 bindHelper.isHide.set(scrollY <= topbarHeight)
             }
             bindHelper.scrollY.set(if(scrollY < 0) 0 else scrollY)
+            bindHelper.alpha.set(if (scrollY > 50) 0.5f else ((100 - scrollY) / 100.0).toFloat())
         }
         configRefresh()
         home_frag_toolbar_scan_lay.setOnClickListener {
-            push("/extra/scan")
+            activity.to<HomeActivity>().toCategory()
         }
     }
 

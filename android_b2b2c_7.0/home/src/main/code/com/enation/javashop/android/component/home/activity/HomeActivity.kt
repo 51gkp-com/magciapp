@@ -106,6 +106,10 @@ class HomeActivity : BaseActivity<HomeActivityPresenter,HomeActLayBinding>(),Hom
         home_act_viewpager.setCurrentItem(3,false)
     }
 
+    fun toCategory(){
+        home_act_viewpager.setCurrentItem(1,false)
+    }
+
     /**
      * @author LDD
      * @From   HomeActivity
