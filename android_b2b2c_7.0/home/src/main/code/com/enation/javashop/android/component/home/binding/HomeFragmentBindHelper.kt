@@ -25,7 +25,7 @@ class HomeFragmentBindHelper {
      * @Type  ObservableField<Int>
      * @Note  搜索栏alpha
      */
-    val alpha = ObservableField(0.0f)
+    val alpha = ObservableField(0)
 
     /**
      * @Name  image
