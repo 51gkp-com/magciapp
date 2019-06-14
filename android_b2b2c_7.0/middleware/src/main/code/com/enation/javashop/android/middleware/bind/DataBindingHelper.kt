@@ -3,6 +3,7 @@ package com.enation.javashop.android.middleware.bind
 import android.app.Activity
 import android.databinding.BindingAdapter
 import android.graphics.Color
+import android.os.Build
 import android.support.constraint.ConstraintLayout
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
@@ -48,6 +49,24 @@ object DataBindingHelper {
         view.reLayout<ViewGroup.LayoutParams> {
             params ->
             params.height = AppTool.SystemUI.getStatusBarHeight()
+        }
+    }
+
+    @BindingAdapter(value = "bind:smart_padding", requireAll = true)
+    @JvmStatic
+    fun smartPadding(view : View , type :Int){
+        view.reLayout<ViewGroup.LayoutParams> {
+            params ->
+            val MIN_API = 17
+            if (Build.VERSION.SDK_INT >= MIN_API) {
+                val statusBarHeight = AppTool.SystemUI.getStatusBarHeight()
+                val lp = view.layoutParams
+                if (lp != null && lp.height > 0) {
+                    lp.height += statusBarHeight//增高
+                }
+                view.setPadding(view.paddingLeft, view.paddingTop + statusBarHeight,
+                        view.paddingRight, view.paddingBottom)
+            }
         }
     }
 
