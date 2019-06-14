@@ -129,6 +129,7 @@ dependencies {
      *   刷新数据控件
      */
     compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-18'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-18'
 
     /**
      *   动画框架 巨牛逼

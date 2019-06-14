@@ -23,11 +23,18 @@
         app:srlEnableLoadMore="false"
         android:background="@color/javashop_color_cyan"
         >
+        <com.scwang.smartrefresh.header.MaterialHeader
+            android:id="@+id/home_frag_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="?attr/actionBarSize"/>
         <android.support.v7.widget.RecyclerView
-        android:id="@+id/home_frag_floor_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#EEF2F3"
+            android:id="@+id/home_frag_floor_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#EEF2F3"
+            android:clipToPadding="false"
+            android:paddingTop="?attr/actionBarSize"
         />
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
     <android.support.constraint.ConstraintLayout
@@ -38,13 +45,13 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         bind:layout_constraintTop_toTopOf="parent"
-        bind:alpha="@{homeData.scrollY.get()}"
-        android:background="@color/javashop_color_white"
+        bind:alpha="@{homeData.alpha.get()}"
+        android:background="#dc7e12"
         >
         <View
             android:id="@+id/home_frag_toolbar_holder"
             android:layout_width="0dp"
-            android:background="@{homeData.scrollY.get() > 30 ? @color/javashop_color_holder_color : @color/javashop_color_transparent }"
+            android:background="@color/javashop_color_transparent"
             android:layout_height="0dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -135,7 +142,7 @@
             app:layout_constraintRight_toLeftOf="@id/home_frag_toolbar_my_lay"
             app:layout_constraintLeft_toRightOf="@id/home_frag_toolbar_scan_lay"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="@{homeData.isHide().get() ? @drawable/javashop_home_frag_toolbar_search_white_bg : @drawable/javashop_home_frag_toolbar_search_gray_bg}"
+            android:background="@drawable/javashop_home_frag_toolbar_search_white_bg"
             >
             <ImageView
                 android:id="@+id/home_frag_toolbar_search_iv"
@@ -149,7 +156,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintDimensionRatio="w,1:1"
-                android:src="@{homeData.isHide().get() ? @drawable/javashop_find_black : @drawable/javashop_find_white}"
+                android:src="@drawable/javashop_find_black"
                 />
 
             <TextView
@@ -162,7 +169,7 @@
                 android:paddingBottom="5dp"
                 android:paddingTop="5dp"
                 android:text="请输入你想搜索的关键词"
-                android:textColor="@{homeData.isHide().get() ? @color/javashop_color_searcher_tv_gray : @color/javashop_color_white}"
+                android:textColor="@color/javashop_color_searcher_tv_gray"
                 app:autoSizeMaxTextSize="20sp"
                 app:autoSizeMinTextSize="1sp"
                 app:autoSizeStepGranularity="2sp"
