@@ -48,7 +48,8 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginRight="10dp"
                 app:layout_constraintHorizontal_bias="1"
-                android:src="@drawable/javashop_icon_more_gradient"
+                android:src="@drawable/javashop_icon_into_black"
+                android:padding="4dp"
                 />
             <TextView
                 android:id="@+id/goods_info_spec_content_tv"
