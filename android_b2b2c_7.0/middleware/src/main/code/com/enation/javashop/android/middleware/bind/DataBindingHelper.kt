@@ -23,6 +23,7 @@ import com.enation.javashop.android.lib.utils.*
 import com.enation.javashop.android.middleware.R
 import com.enation.javashop.android.middleware.api.MemberState
 import com.enation.javashop.android.middleware.model.GoodsItemViewModel
+import com.enation.javashop.android.middleware.model.RecommendGoodsViewModel
 import com.enation.javashop.utils.base.tool.BaseToolActivity
 import com.enation.javashop.utils.base.tool.ScreenTool
 import com.m7.imkfsdk.KfStartHelper
@@ -132,6 +133,20 @@ object DataBindingHelper {
             Do.prepare().doOnBack { call ->
                 if(view.context is Activity){
                     gotoInquiryPrice((view.context as Activity), goods.goodsImage, goods.goodsName, "",  goods.goodsId)
+                }
+                call.invoke()
+            }.execute()
+        }))
+    }
+
+
+    @BindingAdapter(value = "bind:to_inquiry_price2", requireAll = true)
+    @JvmStatic
+    fun toInquiryPrice2(view: View, goods: RecommendGoodsViewModel) {
+        view.setOnClickListener(OnClickListenerAntiViolence(event = {
+            Do.prepare().doOnBack { call ->
+                if(view.context is Activity){
+                    gotoInquiryPrice((view.context as Activity), goods.image, goods.name, "",  goods.id)
                 }
                 call.invoke()
             }.execute()

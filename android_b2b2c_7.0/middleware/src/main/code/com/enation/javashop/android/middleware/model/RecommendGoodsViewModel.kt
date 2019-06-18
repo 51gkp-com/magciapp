@@ -14,14 +14,16 @@ import org.json.JSONObject
 data class RecommendGoodsViewModel(var id :Int ,        /**商品id*/
                                    var name:String ,    /**商品名称*/
                                    var image:String ,   /**商品图片*/
-                                   var price:Double)    /**商品价格*/
+                                   var price:Double,
+                                   var canInquiry :Int = 0)    /**商品价格*/
 {
     companion object {
         fun map(jsonObject: JSONObject) : RecommendGoodsViewModel{
             var goods =  RecommendGoodsViewModel(jsonObject.valueInt("goods_id"),
                     jsonObject.valueString("goods_name"),
                     jsonObject.valueString("goods_image"),
-                    jsonObject.valueDouble("goods_price"))
+                    jsonObject.valueDouble("goods_price"),
+                    jsonObject.valueInt("can_inquiry"))
 
             if (goods.image == ""){
                 goods.image = jsonObject.valueString("thumbnail")
@@ -35,7 +37,9 @@ data class RecommendGoodsViewModel(var id :Int ,        /**商品id*/
             if (goods.id == 0){
                 goods.id = jsonObject.valueInt("goods_id")
             }
-
+            if (goods.canInquiry == 0){
+                goods.canInquiry = jsonObject.valueInt("can_inquiry")
+            }
             return goods
         }
     }
