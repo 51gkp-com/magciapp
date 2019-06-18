@@ -2,6 +2,9 @@ package com.enation.javashop.android.component.promotion.activity
 
 import android.annotation.SuppressLint
 import android.graphics.Color
+import android.os.Build
+import android.webkit.WebResourceRequest
+import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.enation.javashop.android.component.promotion.R
 import com.enation.javashop.android.component.promotion.databinding.WebLayBinding
@@ -39,6 +42,21 @@ class WebActivity : BaseActivity<WebPresenter, WebLayBinding>(), WebContract.Vie
         AppTool.SystemUI.ImmersiveWithBottomBarColor(this, Color.BLACK)
         web_topbar.setTitleText(title).setLeftClickListener { pop() }
         webview.settings.javaScriptEnabled = true
+
+        webview.webViewClient = object : WebViewClient(){
+
+            override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    view.loadUrl(request.url.toString())
+                } else {
+                    view.loadUrl(request.toString())
+                }
+                return true
+            }
+        }
+
+
+
         webview.loadUrl(url)
     }
 
