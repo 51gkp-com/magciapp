@@ -215,7 +215,7 @@ class MemberSendMessageActivity :BaseActivity<MemberSendMessagePresenter,MemberS
     private fun showAgreement(){
         push("/common/web",{
             it.withString("title","《玛吉克商城使用协议》")
-            it.withString("url","http://m.buyer.javamall.com.cn/")
+            it.withString("url","http://m.51gkp.com/resister_app")
         })
     }
 
