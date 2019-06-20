@@ -41,7 +41,9 @@ class GoodsInfoFragment :BaseFragment<GoodsInfoPresenter,GoodsInfoFragLayBinding
 
     var currentNum : Int = 1
 
-    private val specDialog by lazy {  GoodsSpecView.build(activity,skuList,specList).setSkuSelectObserver { sku , num ->
+    var canInquiry = 0
+
+    private val specDialog by lazy {  GoodsSpecView.build(activity,skuList,specList, canInquiry).setSkuSelectObserver { sku , num ->
         currentNum = num
         specAdapter.text = sku!!.getSpecString() + "(${num}件)"
         specAdapter.notifyDataSetChanged()
@@ -131,6 +133,7 @@ class GoodsInfoFragment :BaseFragment<GoodsInfoPresenter,GoodsInfoFragLayBinding
         adapters.clear()
         activity.to<GoodsActivity>().collectState(goodsDetail.collect)
         skuList = skuGoodsList
+        canInquiry = goodsDetail.canInquiry
         specList = SkuGoods.mapSpec(skuList)
         specList.add(1)
         goodsInfoAdapter = GoodsInfoMessageAdapter(this,goodsDetail,couponList,promotion)

@@ -99,6 +99,46 @@
             app:autoSizeTextType="uniform"
             tools:ignore="MissingPrefix"
             />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/goods_info_inquiry_price_lay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="#e6a23c"
+            app:layout_constraintLeft_toRightOf="@id/goods_info_spec_pop_iv"
+            app:layout_constraintBottom_toTopOf="@id/goods_info_spec_pop_num_tv"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            >
+
+            <ImageView
+                android:id="@+id/iv_inquiry_price"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@mipmap/service"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:text="询价"
+                android:textColor="#ffffff"
+                android:textSize="18sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/iv_inquiry_price"
+                />
+
+        </android.support.constraint.ConstraintLayout>
+
         <View
             android:id="@+id/goods_info_spec_pop_line"
             android:layout_width="match_parent"

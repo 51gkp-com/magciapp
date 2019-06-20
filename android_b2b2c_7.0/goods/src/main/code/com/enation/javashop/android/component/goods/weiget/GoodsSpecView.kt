@@ -19,6 +19,7 @@ import com.enation.javashop.android.component.goods.databinding.GoodsInfoSpecPop
 import com.enation.javashop.android.lib.core.runtime.JavaShopActivityTask
 import com.enation.javashop.android.lib.utils.*
 import com.enation.javashop.android.lib.widget.PopWindowCompatible
+import com.enation.javashop.android.middleware.bind.DataBindingHelper
 import com.enation.javashop.android.middleware.model.SkuGoods
 import com.enation.javashop.android.middleware.model.Spec
 import com.enation.javashop.utils.base.tool.ScreenTool
@@ -53,6 +54,8 @@ class GoodsSpecView : PopWindowCompatible {
 
 
     var skuList = ArrayList<SkuGoods>()
+
+    var canInquiry = 0
 
     var num = 1
 
@@ -103,16 +106,17 @@ class GoodsSpecView : PopWindowCompatible {
          * @Note   静态构建
          * @param  activity 页面
          */
-        fun build(activity: Activity,skus :ArrayList<SkuGoods>,specs :ArrayList<Any>) : GoodsSpecView {
-            return GoodsSpecView(activity,skus,specs)
+        fun build(activity: Activity,skus :ArrayList<SkuGoods>,specs :ArrayList<Any>, canInquiry: Int) : GoodsSpecView {
+            return GoodsSpecView(activity,skus,specs, canInquiry)
         }
     }
 
     /**构造方法*/
-    private constructor(activity: Activity,skus :ArrayList<SkuGoods>,specs :ArrayList<Any>): super(ScreenTool.getScreenWidth(activity).toInt(), (GoodsSpecView.getHeight() - AppTool.SystemUI.getStatusBarHeight())){
+    private constructor(activity: Activity,skus :ArrayList<SkuGoods>,specs :ArrayList<Any>, canInquiry: Int): super(ScreenTool.getScreenWidth(activity).toInt(), (GoodsSpecView.getHeight() - AppTool.SystemUI.getStatusBarHeight())){
         this.activity = activity
         this.skuList = skus
         this.specList = specs
+        this.canInquiry = canInquiry
         isFocusable = true
         isOutsideTouchable = true
         setBackgroundDrawable(BitmapDrawable())
@@ -201,6 +205,22 @@ class GoodsSpecView : PopWindowCompatible {
         binding.goodsInfoSpecPopRv.addItemDecoration(SpaceItemDecoration(5.dpToPx()))
         binding.goodsInfoSpecPopRv.layoutManager = flowLayoutManager
         binding.goodsInfoSpecPopRv.adapter = adapter
+
+        binding.goodsInfoInquiryPriceLay.setOnClickListener {
+            DataBindingHelper.gotoInquiryPrice(activity, skuList[0].image, skuList[0].goodsName, "", skuList[0].goodsId)
+        }
+
+        if(canInquiry == 1){
+            binding.goodsInfoSpecPopPriceTv.visibility = View.GONE
+            binding.goodsInfoInquiryPriceLay.visibility = View.VISIBLE
+        }else{
+            binding.goodsInfoSpecPopPriceTv.visibility = View.VISIBLE
+            binding.goodsInfoInquiryPriceLay.visibility = View.GONE
+
+        }
+
+
+
     }
 
    fun setSkuSelectObserver(obser :(SkuGoods?,Int) ->(Unit)) :GoodsSpecView{
