@@ -37,7 +37,7 @@ data class RecommendGoodsViewModel(var id :Int ,        /**商品id*/
             if (goods.id == 0){
                 goods.id = jsonObject.valueInt("goods_id")
             }
-            if (goods.canInquiry == 0){
+            if (goods.canInquiry == -1){
                 goods.canInquiry = jsonObject.valueInt("can_inquiry")
             }
             return goods

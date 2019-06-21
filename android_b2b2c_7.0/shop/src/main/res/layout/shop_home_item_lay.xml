@@ -64,7 +64,7 @@
                 android:gravity="center"
                 android:textColor="#fbac42"
                 bind:price_with_shop_home="@{data}"
-                android:visibility="@{data.canInquiry == 1 ? View.GONE : View.VISIBLE}"
+                android:visibility="@{data.canInquiry != 1 ? View.VISIBLE : View.GONE}"
                 />
 
             <android.support.constraint.ConstraintLayout

@@ -89,7 +89,7 @@
                 android:textColor="@color/javashop_color_price_red"
                 android:gravity="center_vertical"
                 android:layout_marginBottom="10dp"
-                android:visibility="@{data.canInquiry == 1 ? View.INVISIBLE : View.VISIBLE}"
+                android:visibility="@{data.canInquiry != 1 ? View.VISIBLE : View.INVISIBLE}"
                 />
 
             <android.support.constraint.ConstraintLayout

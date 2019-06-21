@@ -96,7 +96,7 @@
                         app:price_type="true"
                         android:textSize="20sp"
                         android:textColor="@color/javashop_color_price_red"
-                        android:visibility="@{data.canInquiry == 0 ? View.VISIBLE : View.GONE}"
+                        android:visibility="@{data.canInquiry != 1 ? View.VISIBLE : View.GONE}"
                         />
 
                     <android.support.constraint.ConstraintLayout
