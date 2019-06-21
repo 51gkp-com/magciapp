@@ -250,7 +250,10 @@ class ShopActivity :BaseActivity<ShopActivityPersenter,ShopActLayBinding>(),Shop
                     iconView.visibility = View.GONE
                     numView.visibility = View.VISIBLE
                     numView.text = when(index){
-                        1 -> "${shopViewModel.goodsNum}"
+                        1 -> {
+                            numView.visibility = View.INVISIBLE
+                            "${shopViewModel.goodsNum}"
+                        }
                         2 -> "${shopViewModel.hotNum}"
                         3 -> "${shopViewModel.new_Num}"
                         4 -> "${shopViewModel.recommendNum}"

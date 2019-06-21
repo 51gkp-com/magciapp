@@ -151,6 +151,7 @@
                         app:autoSizeTextType="uniform"
                         tools:ignore="MissingPrefix"
                         style="@style/auto_text_size"
+                        android:visibility="invisible"
                         />
                     <com.enation.javashop.android.lib.widget.AutoSizeTextView
                         android:id="@+id/goods_info_shop_goods_num_des"
