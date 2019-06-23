@@ -10,11 +10,13 @@ import com.enation.javashop.android.jrouter.external.annotation.Router
 import com.enation.javashop.android.lib.base.BaseActivity
 import com.enation.javashop.android.lib.utils.*
 import com.enation.javashop.android.lib.vo.filter
+import com.enation.javashop.android.lib.widget.UpdateDialog
 import com.enation.javashop.android.middleware.logic.contract.home.HomeActivityContract
 import com.enation.javashop.android.middleware.logic.presenter.home.HomeActivityPresenter
 import com.enation.javashop.android.middleware.model.MemberViewModel
 import com.enation.javashop.android.widget.navigationview.NavigationModel
 import com.enation.javashop.net.engine.model.NetState
+import com.enation.javashop.utils.base.tool.CommonTool
 import kotlinx.android.synthetic.main.home_act_lay.*
 
 /**
@@ -32,6 +34,9 @@ class HomeActivity : BaseActivity<HomeActivityPresenter,HomeActLayBinding>(),Hom
      * @Note  返回键点击间隔时间
      */
     private var clickTime :Long = 0
+
+
+    private lateinit var updateDialog: UpdateDialog
 
     /**
      * @author LDD
@@ -71,6 +76,7 @@ class HomeActivity : BaseActivity<HomeActivityPresenter,HomeActLayBinding>(),Hom
             self.withViewPager(mViewBinding.homeActViewpager)
         }
         presenter.isLogin()
+//        presenter.checkUpdate()
     }
 
     /**
@@ -185,5 +191,18 @@ class HomeActivity : BaseActivity<HomeActivityPresenter,HomeActLayBinding>(),Hom
         },offline = {
 
         })
+    }
+
+    override fun showUpdate() {
+        updateDialog = UpdateDialog(this, object : CommonTool.DialogInterface{
+            override fun yes() {
+                updateDialog.update(10)
+            }
+
+            override fun no() {
+            }
+
+        })
+        updateDialog.show()
     }
 }

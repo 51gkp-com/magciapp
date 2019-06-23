@@ -28,6 +28,8 @@ interface HomeActivityContract {
          */
         fun onUserState(userInfo : MemberViewModel)
 
+
+        fun showUpdate()
     }
 
     /**
@@ -45,6 +47,9 @@ interface HomeActivityContract {
          * @Note   用户是否登录
          */
         fun isLogin()
+
+
+        fun checkUpdate()
 
     }
 }

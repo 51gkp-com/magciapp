@@ -92,5 +92,10 @@ class HomeActivityPresenter @Inject constructor() :RxPresenter<HomeActivityContr
 //                .subscribe(homeActivityObserver)
     }
 
+
+    override fun checkUpdate() {
+        providerView().showUpdate()
+    }
+
 }
 
