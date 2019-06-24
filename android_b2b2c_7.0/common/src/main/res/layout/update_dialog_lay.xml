@@ -52,8 +52,8 @@
 
     <TextView
         android:id="@+id/update_dialog_confrim"
-        android:layout_width="98dp"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/shape_update_dialog_right"
         android:ellipsize="end"
         android:gravity="center"
@@ -69,7 +69,7 @@
         android:autoSizeMaxTextSize="16sp"
         android:autoSizeMinTextSize="10sp"
         android:autoSizeStepGranularity="2sp"
-        android:autoSizeTextType="uniform"        android:visibility="visible"
+        android:autoSizeTextType="uniform"
         app:layout_constraintTop_toBottomOf="@id/update_dialog_content"
         app:layout_constraintRight_toRightOf="@id/vcode_dialog_bg"
         app:layout_constraintLeft_toRightOf="@id/update_dialog_cancel"
