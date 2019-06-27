@@ -230,7 +230,6 @@
 
             <TextView
                 android:id="@+id/goods_search_colligate_tv"
-                style="@style/auto_text_size"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:gravity="center"
@@ -242,13 +241,10 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:autoSizeMaxTextSize="30sp"
-                app:autoSizeMinTextSize="1sp"
-                app:autoSizeStepGranularity="2sp"
-                app:autoSizeTextType="uniform"
                 tools:ignore="MissingPrefix"
                 android:textColor="@color/javashop_color_black"
                 android:tag="text"
+                android:textSize="15sp"
                 />
 
             <ImageView
@@ -276,7 +272,6 @@
 
             <TextView
                 android:id="@+id/goods_search_sales_volume_tv"
-                style="@style/auto_text_size"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:gravity="center"
@@ -288,13 +283,10 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:autoSizeMaxTextSize="30sp"
-                app:autoSizeMinTextSize="1sp"
-                app:autoSizeStepGranularity="2sp"
-                app:autoSizeTextType="uniform"
                 tools:ignore="MissingPrefix"
                 android:textColor="@color/javashop_color_black"
                 android:tag="text"
+                android:textSize="15sp"
                 />
           </android.support.constraint.ConstraintLayout>
 
@@ -308,7 +300,6 @@
 
             <TextView
                 android:id="@+id/goods_search_price_lay_tv"
-                style="@style/auto_text_size"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:gravity="center"
@@ -320,13 +311,10 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:autoSizeMaxTextSize="30sp"
-                app:autoSizeMinTextSize="1sp"
-                app:autoSizeStepGranularity="2sp"
-                app:autoSizeTextType="uniform"
                 tools:ignore="MissingPrefix"
                 android:textColor="@color/javashop_color_black"
                 android:tag="text"
+                android:textSize="15sp"
                 />
 
             <ImageView
@@ -354,7 +342,6 @@
 
             <TextView
                 android:id="@+id/goods_search_filter_tv"
-                style="@style/auto_text_size"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:gravity="center"
@@ -366,13 +353,10 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:autoSizeMaxTextSize="30sp"
-                app:autoSizeMinTextSize="1sp"
-                app:autoSizeStepGranularity="2sp"
-                app:autoSizeTextType="uniform"
                 tools:ignore="MissingPrefix"
                 android:textColor="@color/javashop_color_black"
                 android:tag="text"
+                android:textSize="15sp"
                 />
 
             <ImageView

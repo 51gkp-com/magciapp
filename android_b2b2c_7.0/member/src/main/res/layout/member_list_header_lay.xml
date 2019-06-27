@@ -299,6 +299,7 @@
                     app:layout_constraintVertical_bias="0.9"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent="1"
+                    android:textSize="15sp"
                     />
             </android.support.constraint.ConstraintLayout>
 
@@ -343,6 +344,7 @@
                     app:layout_constraintVertical_bias="0.9"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent="1"
+                    android:textSize="15sp"
                     />
             </android.support.constraint.ConstraintLayout>
 
@@ -385,6 +387,7 @@
                     app:layout_constraintVertical_bias="0.9"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent="1"
+                    android:textSize="15sp"
                     />
             </android.support.constraint.ConstraintLayout>
 
@@ -427,6 +430,7 @@
                     app:layout_constraintVertical_bias="0.9"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent="1"
+                    android:textSize="15sp"
                     />
             </android.support.constraint.ConstraintLayout>
 
@@ -483,6 +487,7 @@
                     app:layout_constraintVertical_bias="0.9"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent="1"
+                    android:textSize="15sp"
                     />
             </android.support.constraint.ConstraintLayout>
         </android.support.constraint.ConstraintLayout>
@@ -538,6 +543,7 @@
                     app:layout_constraintVertical_bias="0.9"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent="1"
+                    android:textSize="15sp"
                     />
             </android.support.constraint.ConstraintLayout>
 
@@ -581,6 +587,7 @@
                     app:layout_constraintVertical_bias="0.9"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent="1"
+                    android:textSize="15sp"
                     />
             </android.support.constraint.ConstraintLayout>
 
@@ -623,6 +630,7 @@
                     app:layout_constraintVertical_bias="0.9"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent="1"
+                    android:textSize="15sp"
                     />
             </android.support.constraint.ConstraintLayout>
 
@@ -665,6 +673,7 @@
                     app:layout_constraintVertical_bias="0.9"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent="1"
+                    android:textSize="15sp"
                     />
             </android.support.constraint.ConstraintLayout>
 
@@ -720,6 +729,7 @@
                     app:layout_constraintVertical_bias="0.9"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent="1"
+                    android:textSize="15sp"
                     />
             </android.support.constraint.ConstraintLayout>
         </android.support.constraint.ConstraintLayout>
@@ -795,6 +805,7 @@
                     app:layout_constraintVertical_bias="0.9"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent="1"
+                    android:textSize="15sp"
                     />
             </android.support.constraint.ConstraintLayout>
 
@@ -841,6 +852,7 @@
                     app:layout_constraintVertical_bias="0.9"
                     app:layout_constraintWidth_default="percent"
                     app:layout_constraintWidth_percent="1"
+                    android:textSize="15sp"
                     />
             </android.support.constraint.ConstraintLayout>
 
