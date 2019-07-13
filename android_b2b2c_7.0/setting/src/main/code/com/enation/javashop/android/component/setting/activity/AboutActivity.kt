@@ -31,7 +31,7 @@ class AboutActivity : BaseToolActivity() {
             toolBack()
         }
         Thread{
-            val code = EcodeHelper().createQRImage("http://m.javamall.com.cn/dl-b2b2c.html",200,null)
+            val code = EcodeHelper().createQRImage("https://51gkp-static.oss-cn-beijing.aliyuncs.com/package/app-releaseV1.4.apk",200,null)
             runOnUiThread {
                 about_ercode_iv.setImageBitmap(code)
             }
