@@ -147,6 +147,17 @@ import java.lang.ref.WeakReference
                 self.memberInfoUnloginIv.setOnClickListener {
                     fragment.get()?.activity?.push("/member/login/main",requstCode = 101,isNeedLogin = !MemberState.manager.getLoginState())
                 }
+                self.memberInvoke.setOnClickListener {
+                    fragment.get()?.push("/common/web",{
+                        it.withString("title","邀请注册")
+                        it.withString("url", "http://m.51gkp.com/imgUrl?uname=" + member.username)
+                    },isNeedLogin = !MemberState.manager.getLoginState())
+                }
+                self.memberAddSoOn.setOnClickListener {
+                    fragment.get()?.push("/member/invite/list",{
+                        it.withString("uname", member.username)
+                    },isNeedLogin = !MemberState.manager.getLoginState())
+                }
                 if(member.username == ""){
                     self.memberHeaderBg.setImageResource(R.drawable.javashop_member_header_nologin_bg)
                     self.memberInfoUserfaceIv.setImageResource(R.mipmap.member_nologin_userface)

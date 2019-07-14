@@ -30,6 +30,18 @@ class ApiProvides {
      * @author  LDD
      * @From   com.enation.javashop.android.middleware.di
      * @Data   2017/12/26 上午7:30
+     * @Note   额外ApI
+     * @return 额外API
+     */
+    @Provides
+    fun provideOtherApi(): OtherApi{
+        return ApiManager.OTHER_API
+    }
+
+    /**
+     * @author  LDD
+     * @From   com.enation.javashop.android.middleware.di
+     * @Data   2017/12/26 上午7:30
      * @Note   售后ApI
      * @return 售后API
      */

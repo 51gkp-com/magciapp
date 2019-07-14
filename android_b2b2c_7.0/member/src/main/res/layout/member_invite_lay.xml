@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+        <com.enation.javashop.android.lib.widget.CommonActionBar
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:left_image="@drawable/javashop_back_black"
+            app:title_text="邀请注册"
+            bind:auto_topbar_height="@{true}"
+            app:title_text_color="@color/javashop_color_black"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/member_invite_topbar"
+            />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/memeber_invite_title"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="h,12:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/member_invite_topbar"
+            android:background="#f1f1f1"
+            >
+
+            <TextView
+                android:id="@+id/memeber_invite_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="时间"
+                app:title_text_color="@color/javashop_color_black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintHorizontal_bias="0.1"
+                />
+
+            <TextView
+                android:id="@+id/memeber_invite_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户名"
+                app:title_text_color="@color/javashop_color_black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/memeber_invite_time"
+                app:layout_constraintRight_toLeftOf="@id/memeber_invite_count"
+                />
+
+
+            <TextView
+                android:id="@+id/memeber_invite_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="邀请人数"
+                app:title_text_color="@color/javashop_color_black"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintHorizontal_bias="0.9"
+                />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refresh"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/memeber_invite_title"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/member_invite_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#f1f1f1"
+                />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </android.support.constraint.ConstraintLayout>
+</layout>

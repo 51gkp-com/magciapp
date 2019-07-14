@@ -17,7 +17,8 @@
 
         <activity android:name=".activity.MemberAddressActivity"
             />
-
+        <activity android:name=".activity.MemberInviteActivity"
+            />
         <activity android:name=".activity.MemberAddressEditActivity"
             />
         <activity android:name=".activity.MemberSecurityActivity"

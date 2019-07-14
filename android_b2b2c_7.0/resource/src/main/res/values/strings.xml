@@ -28,6 +28,8 @@
     <string name="javashop_member_action_history">我的足迹</string>
     <string name="javashop_member_action_address">我的地址</string>
     <string name="javashop_member_action_user_service">客户服务</string>
+    <string name="javashop_member_action_user_recommend">推荐有礼</string>
+    <string name="javashop_member_action_user_invoke">邀请注册</string>
     <string name="javashop_setting_action_receipt">我的发票</string>
     <string name="javashop_setting_action_privacy">隐私设置</string>
     <string name="javashop_setting_action_share">应用分享</string>

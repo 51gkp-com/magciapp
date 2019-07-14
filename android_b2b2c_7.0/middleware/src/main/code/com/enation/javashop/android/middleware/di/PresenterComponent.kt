@@ -86,6 +86,8 @@ interface PresenterComponent {
 
     fun inject(presenter: MemberAddressPresenter)
 
+    fun inject(presenter: MemberInvitePresenter)
+
     fun inject(presenter: MemberAddressEditPresenter)
 
     fun inject(presenter: MemberSecurityPresenter)

@@ -27,6 +27,8 @@ interface MemberComponent {
 
     fun inject(activity: MemberAddressActivity)
 
+    fun inject(activity: MemberInviteActivity)
+
     fun inject(activity: MemberAddressEditActivity)
 
     fun inject(activity: MemberSecurityActivity)

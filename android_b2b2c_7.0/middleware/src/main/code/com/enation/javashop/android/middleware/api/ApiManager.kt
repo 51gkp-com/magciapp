@@ -38,6 +38,13 @@ object ApiManager {
          */
         val EXTRA_API :ExtraApi by lazy { apiFectory.createService(ExtraApi::class.java, urlManager.buyer) }
 
+        /**
+         * @Name  com.enation.javashop.android.middleware.api.ApiManager.OTHER_API
+         * @Type  ExtraApi
+         * @Note  其他API
+         */
+        val OTHER_API :OtherApi by lazy { apiFectory.createService(OtherApi::class.java, urlManager.api) }
+
 
         /**
          * @Name  com.enation.javashop.android.middleware.api.ApiManager.BASE_URL

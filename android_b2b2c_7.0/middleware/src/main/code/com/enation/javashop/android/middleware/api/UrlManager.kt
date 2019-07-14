@@ -19,6 +19,9 @@ interface UrlManager {
     /// 基础Api
     val basic : String
 
+    /// 其他
+    val api : String
+
     /**
      * @author LDD
      * @Date   2018/8/21 下午4:46
@@ -61,6 +64,9 @@ private class DevUrlManager : UrlManager{
 
     override val basic: String
         get() = "${base}base-api/"
+
+    override val api: String
+        get() = ""
 }
 
 /**
@@ -79,4 +85,7 @@ private class ProUrlManager : UrlManager{
 
     override val basic: String
         get() = String.format(base,"baseapi")
+
+    override val api: String
+        get() = String.format(base, "api")
 }

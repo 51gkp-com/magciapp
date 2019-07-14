@@ -22,6 +22,16 @@ interface ApplicationComponent {
      */
     fun provideExtraApi(): ExtraApi
 
+
+    /**
+     * @author  LDD
+     * @From   com.enation.javashop.android.middleware.di
+     * @Data   2017/12/26 上午7:30
+     * @Note   额外Api
+     * @return 额外API
+     */
+    fun provideOtherApi(): OtherApi
+
     /**
      * @author  LDD
      * @From   com.enation.javashop.android.middleware.di
