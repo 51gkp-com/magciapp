@@ -59,6 +59,10 @@ class UpdateDialog(val activity: Activity): Dialog(activity, R.style.Dialog)  {
         }
 
         yesTv.setOnClickListener {
+            content.text = "正在下载……"
+            yesTv.visibility = View.INVISIBLE
+            noTv.visibility = View.INVISIBLE
+
             listener?.yes()
         }
         noTv.setOnClickListener {

@@ -16,12 +16,23 @@ interface OtherApi {
 
     /**
      * @author LDD
+     * @From   OtherApi
+     * @Date   2018/8/16 下午3:05
+     * @Note   获取邀请列表
+     * @param  uname 用户名
+     */
+    @GET("MAGIC-VIPMEMBER/vip/{uname}/level")
+    fun getInviteList(@Path("uname") sn :String) :Observable<ResponseBody>
+
+
+    /**
+     * @author LDD
      * @From   ExtraApi
      * @Date   2018/8/16 下午3:05
      * @Note   获取关键字
      * @param  num 获取数量
      */
-    @GET("MAGIC-VIPMEMBER/vip/{uname}/level")
-    fun getInviteList(@Path("uname") sn :String) :Observable<ResponseBody>
+    @GET("APPVERSION/app/android")
+    fun getAppVersion() :Observable<ResponseBody>
 
 }

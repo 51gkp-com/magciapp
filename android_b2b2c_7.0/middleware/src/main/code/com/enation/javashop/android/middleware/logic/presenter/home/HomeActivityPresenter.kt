@@ -1,12 +1,11 @@
 package com.enation.javashop.android.middleware.logic.presenter.home
 
 import com.enation.javashop.android.lib.base.RxPresenter
-import com.enation.javashop.android.lib.utils.AppTool
-import com.enation.javashop.android.lib.utils.ConnectionObserver
-import com.enation.javashop.android.lib.utils.errorLog
-import com.enation.javashop.android.lib.utils.getEventCenter
+import com.enation.javashop.android.lib.utils.*
+import com.enation.javashop.android.middleware.BuildConfig
 import com.enation.javashop.android.middleware.api.ApiManager
 import com.enation.javashop.android.middleware.api.MemberApi
+import com.enation.javashop.android.middleware.api.OtherApi
 import com.enation.javashop.android.middleware.di.MiddlewareDaggerComponent
 import com.enation.javashop.android.middleware.logic.contract.home.HomeActivityContract
 import com.enation.javashop.android.middleware.model.MemberViewModel
@@ -37,6 +36,15 @@ class HomeActivityPresenter @Inject constructor() :RxPresenter<HomeActivityContr
     @Inject
     protected lateinit var memberApi : MemberApi
 
+
+    /**
+     * @Name  otherApi
+     * @Type  OtherApi
+     * @Note  其他API
+     */
+    @Inject
+    protected lateinit var otherApi : OtherApi
+
     /**
      * @author LDD
      * @From   HomeActivityPresenter
@@ -59,7 +67,11 @@ class HomeActivityPresenter @Inject constructor() :RxPresenter<HomeActivityContr
         }
 
         override fun onNextWithConnection(result: Any, connectionQuality: ConnectionQuality) {
-            //providerView().onUserState(result)
+            if(result is String){
+                if(!BuildConfig.VERSION_NAME.equals(result)){
+                    providerView().showUpdate()
+                }
+            }
         }
 
         override fun onErrorWithConnection(error: ExceptionHandle.ResponeThrowable, connectionQuality: ConnectionQuality) {
@@ -92,9 +104,14 @@ class HomeActivityPresenter @Inject constructor() :RxPresenter<HomeActivityContr
 //                .subscribe(homeActivityObserver)
     }
 
-
     override fun checkUpdate() {
-        providerView().showUpdate()
+
+        otherApi.getAppVersion()
+                .map {
+                    it.getJsonString()
+                }
+                .compose(ThreadFromUtils.defaultSchedulers())
+                .subscribe(homeActivityObserver)
     }
 
 }

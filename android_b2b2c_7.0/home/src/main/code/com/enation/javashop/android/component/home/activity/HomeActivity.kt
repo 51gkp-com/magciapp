@@ -1,6 +1,16 @@
 package com.enation.javashop.android.component.home.activity
 
+import android.app.DownloadManager
+import android.content.BroadcastReceiver
+import android.content.Context
+import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.Color
+import android.net.Uri
+import android.os.Build
+import android.os.Environment
+import android.support.v4.content.FileProvider
+import android.util.Log
 import com.enation.javashop.android.component.home.R
 import com.enation.javashop.android.component.home.databinding.HomeActLayBinding
 import com.enation.javashop.android.component.home.fragment.CategoryFragment
@@ -18,6 +28,10 @@ import com.enation.javashop.android.widget.navigationview.NavigationModel
 import com.enation.javashop.net.engine.model.NetState
 import com.enation.javashop.utils.base.tool.CommonTool
 import kotlinx.android.synthetic.main.home_act_lay.*
+import java.io.File
+import com.moor.imkf.http.HttpManager.downloadFile
+
+
 
 /**
  * @author  LDD
@@ -75,7 +89,7 @@ class HomeActivity : BaseActivity<HomeActivityPresenter,HomeActLayBinding>(),Hom
             self.setSelectColor(R.color.javashop_color_navigation_select)
             self.withViewPager(mViewBinding.homeActViewpager)
         }
-        presenter.isLogin()
+//        presenter.isLogin()
 //        presenter.checkUpdate()
     }
 
@@ -196,7 +210,7 @@ class HomeActivity : BaseActivity<HomeActivityPresenter,HomeActLayBinding>(),Hom
     override fun showUpdate() {
         updateDialog = UpdateDialog(this, object : CommonTool.DialogInterface{
             override fun yes() {
-                updateDialog.update(10)
+                download()
             }
 
             override fun no() {
@@ -205,4 +219,68 @@ class HomeActivity : BaseActivity<HomeActivityPresenter,HomeActLayBinding>(),Hom
         })
         updateDialog.show()
     }
+
+    private var downloadFile: File? = null
+    private var enqueueId = 0L
+
+    private fun download() {
+        val downloadManager = getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+        val request = DownloadManager.Request(Uri.parse("https://51gkp-static.oss-cn-beijing.aliyuncs.com/package/app-releaseV1.4.apk"))
+        request.setMimeType("application/vnd.android.package-archive") //修改
+        downloadFile = File(getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS), "magic.apk") //修改
+        request.setDestinationUri(Uri.fromFile(downloadFile)) //修改
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+        request.setTitle("玛吉克商城")
+        request.setDescription("正在下载")
+        request.setVisibleInDownloadsUi(true)
+        enqueueId = downloadManager.enqueue(request)
+        val downCompleteReceiver = DownLoadCompleteReceiver()
+        registerReceiver(downCompleteReceiver, IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
+    }
+
+    private inner class DownLoadCompleteReceiver : BroadcastReceiver() {
+        override fun onReceive(context: Context, intent: Intent) {
+            val dm = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+            val id = intent.extras!!.getLong(DownloadManager.EXTRA_DOWNLOAD_ID, -1)
+            if (enqueueId != id) {
+                return
+            }
+
+            val query = DownloadManager.Query()
+            query.setFilterById(enqueueId)
+
+            val c = dm.query(query)
+
+            if (c != null && c.moveToFirst()) {
+                val columnIndex = c.getColumnIndex(DownloadManager.COLUMN_STATUS)
+                // 下载失败也会返回这个广播，所以要判断下是否真的下载成功
+                if (DownloadManager.STATUS_SUCCESSFUL == c.getInt(columnIndex)) {
+                    installSoft(context)
+                }
+                c.close()
+            }
+
+            if(updateDialog != null && updateDialog.isShowing){
+                updateDialog.dismiss()
+            }
+        }
+
+        private fun installSoft(context: Context) {
+            val file  = context.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS + "/magic.apk")
+            val intent = Intent(Intent.ACTION_VIEW)
+            // 由于没有在Activity环境下启动Activity,设置下面的标签
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            if (Build.VERSION.SDK_INT >= 24) { //判读版本是否在7.0以上
+                //参数1 上下文, 参数2 Provider主机地址 和配置文件中保持一致   参数3  共享的文件
+                val apkUri = FileProvider.getUriForFile(context, "com.bj.magic.shop.fileprovider", file)
+                //添加这一句表示对目标应用临时授权该Uri所代表的文件
+                intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                intent.setDataAndType(apkUri, "application/vnd.android.package-archive")
+            } else {
+                intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive")
+            }
+            context.startActivity(intent)
+        }
+    }
+
 }
