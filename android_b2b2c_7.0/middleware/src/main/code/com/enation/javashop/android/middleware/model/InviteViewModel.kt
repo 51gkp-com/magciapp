@@ -19,9 +19,9 @@ data class InviteViewModel(val time:String,/**店铺描述*/
     companion object {
         fun map(jsonObject : JSONObject) : InviteViewModel{
             val result = InviteViewModel(
-                    jsonObject.valueString("time"),
-                    jsonObject.valueString("name"),
-                    jsonObject.valueInt("goods_num")
+                    jsonObject.valueString("createtime"),
+                    jsonObject.valueString("uname"),
+                    jsonObject.valueInt("total")
                     )
             return result
         }
