@@ -90,7 +90,7 @@ class HomeActivity : BaseActivity<HomeActivityPresenter,HomeActLayBinding>(),Hom
             self.withViewPager(mViewBinding.homeActViewpager)
         }
 //        presenter.isLogin()
-//        presenter.checkUpdate()
+        presenter.checkUpdate()
     }
 
     /**
