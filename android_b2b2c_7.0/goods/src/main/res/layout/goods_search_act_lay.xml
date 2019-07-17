@@ -244,7 +244,7 @@
                 tools:ignore="MissingPrefix"
                 android:textColor="@color/javashop_color_black"
                 android:tag="text"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 />
 
             <ImageView
@@ -286,7 +286,7 @@
                 tools:ignore="MissingPrefix"
                 android:textColor="@color/javashop_color_black"
                 android:tag="text"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 />
           </android.support.constraint.ConstraintLayout>
 
@@ -314,7 +314,7 @@
                 tools:ignore="MissingPrefix"
                 android:textColor="@color/javashop_color_black"
                 android:tag="text"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 />
 
             <ImageView
@@ -356,7 +356,7 @@
                 tools:ignore="MissingPrefix"
                 android:textColor="@color/javashop_color_black"
                 android:tag="text"
-                android:textSize="15sp"
+                android:textSize="14sp"
                 />
 
             <ImageView

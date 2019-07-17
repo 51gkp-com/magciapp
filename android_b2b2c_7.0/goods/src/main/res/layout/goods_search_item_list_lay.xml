@@ -57,7 +57,7 @@
                     android:lines="2"
                     android:textColor="@color/javashop_color_black"
                     android:ellipsize="end"
-                    android:textSize="20sp"
+                    android:textSize="14sp"
                     android:text="@{data.goodsName}"
                     />
                 <android.support.constraint.ConstraintLayout
